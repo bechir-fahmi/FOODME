@@ -135,7 +135,7 @@ public class VendorController : ControllerBase
     {
         try
         {
-            var vendor=_vendorService.AddGeneralInformations(vendorGeneralInformation);
+            var vendor = _vendorService.AddGeneralInformations(vendorGeneralInformation);
             return Created(nameof(AddGeneralInformation), vendor);
         }
         catch (Exception ex)
@@ -144,7 +144,7 @@ public class VendorController : ControllerBase
             return StatusCode(500, $"Internal server Error. Please try later, error : {ex}");
         }
     }
-    
+
     [Route("UpdateGeneralInformation")]
     [AllowAnonymous]
     //[Authorize("Permissions.Brand.Update")]
@@ -155,7 +155,7 @@ public class VendorController : ControllerBase
     {
         try
         {
-            var vendor=_vendorService.UpdateGeneralInformations(vendorGeneralInformation);
+            var vendor = _vendorService.UpdateGeneralInformations(vendorGeneralInformation);
             return Created(nameof(UpdateGeneralInformation), vendor);
         }
         catch (Exception ex)
@@ -164,7 +164,7 @@ public class VendorController : ControllerBase
             return StatusCode(500, $"Internal server Error. Please try later, error : {ex}");
         }
     }
-    
+
     [Route("AddDeliveryZonesToVendor")]
     [AllowAnonymous]
     //[Authorize("Permissions.Brand.Create")]
@@ -175,8 +175,8 @@ public class VendorController : ControllerBase
     {
         try
         {
-                _vendorService.Add(vendorDeliveryZones, vendorId, vendorType);
-                return Created(nameof(AddDeliveryZonesToVendor), vendorDeliveryZones);
+            _vendorService.Add(vendorDeliveryZones, vendorId, vendorType);
+            return Created(nameof(AddDeliveryZonesToVendor), vendorDeliveryZones);
 
         }
         catch (Exception ex)
@@ -185,7 +185,7 @@ public class VendorController : ControllerBase
             return StatusCode(500, $"Internal server Error. Please try later, error : {ex}");
         }
     }
-    
+
     [Route("UpdateDeliveryZones")]
     [AllowAnonymous]
     //[Authorize("Permissions.Brand.Update")]
@@ -196,8 +196,8 @@ public class VendorController : ControllerBase
     {
         try
         {
-                _vendorService.Update(vendorDeliveryZones, vendorId, vendorType);
-                return Created(nameof(UpdateDeliveryZones), vendorDeliveryZones);
+            _vendorService.Update(vendorDeliveryZones, vendorId, vendorType);
+            return Created(nameof(UpdateDeliveryZones), vendorDeliveryZones);
         }
         catch (Exception ex)
         {
@@ -212,11 +212,11 @@ public class VendorController : ControllerBase
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public IActionResult AddDataToVendor([FromBody] VendorDataDTO vendorData, Guid vendorId,  VendorType vendorType)
+    public IActionResult AddDataToVendor([FromBody] VendorDataDTO vendorData, Guid vendorId, VendorType vendorType)
     {
         try
         {
-            _vendorService.Add(vendorData,vendorId, vendorType);
+            _vendorService.Add(vendorData, vendorId, vendorType);
             return Created(nameof(AddDataToVendor), vendorData);
         }
         catch (Exception ex)
@@ -225,7 +225,7 @@ public class VendorController : ControllerBase
             return StatusCode(500, $"Internal server Error. Please try later, error : {ex}");
         }
     }
-   
+
     [Route("UpdateVendorData")]
     [AllowAnonymous]
     //[Authorize("Permissions.Brand.Update")]
@@ -236,7 +236,7 @@ public class VendorController : ControllerBase
     {
         try
         {
-            _vendorService.Update(vendorData,vendorId);
+            _vendorService.Update(vendorData, vendorId);
             return Created(nameof(UpdateVendorData), vendorData);
         }
         catch (Exception ex)
@@ -265,7 +265,7 @@ public class VendorController : ControllerBase
             return StatusCode(500, $"Internal server Error. Please try later, error : {ex}");
         }
     }
-   
+
     [Route("UpdateStaticIntegration")]
     [AllowAnonymous]
     //[Authorize("Permissions.Brand.Update")]
@@ -296,7 +296,7 @@ public class VendorController : ControllerBase
     {
         try
         {
-            _vendorService.AddDynamicIntegration(vendorDynamicIntegration, vendorId,vendorType, queryDTO);
+            _vendorService.AddDynamicIntegration(vendorDynamicIntegration, vendorId, vendorType, queryDTO);
             return Created(nameof(AddDynamicIntegrationToVendor), vendorDynamicIntegration);
         }
         catch (Exception ex)
@@ -305,7 +305,7 @@ public class VendorController : ControllerBase
             return StatusCode(500, $"Internal server Error. Please try later, error : {ex}");
         }
     }
-    
+
     [Route("UpdateDynamicIntegration")]
     [AllowAnonymous]
     //[Authorize("Permissions.Brand.Update")]
@@ -325,7 +325,7 @@ public class VendorController : ControllerBase
             return StatusCode(500, $"Internal server Error. Please try later, error : {ex}");
         }
     }
-    
+
     [Route("GetVendorByName/{name}")]
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -382,7 +382,7 @@ public class VendorController : ControllerBase
         }
 
     }
-    
+
     [Route("GetVendorData/{id}")]
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -416,7 +416,7 @@ public class VendorController : ControllerBase
             _logger.LogError(ex, $"Something went wrong in the {nameof(GetVendorDeliveryZones)}");
             return StatusCode(500, $"Internal server Error. Please try later, error : {ex}");
         }
-    } 
+    }
 
     [Route("GetStaticIntegration/{id}")]
     [AllowAnonymous]
@@ -547,12 +547,12 @@ public class VendorController : ControllerBase
             List<DealsDTO> deals = await _vendorService.GetDeals(addressToSearch, languageKey);
             return Ok(deals);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             _logger.LogError(ex, $"Something went wrong in the {nameof(GetDeals)}");
             return StatusCode(500, $"Internal server Error. Please try later, error : {ex}");
         }
-        
+
     }
 
     [HttpGet]
@@ -560,7 +560,7 @@ public class VendorController : ControllerBase
     [Route("GetPagedDeals")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public IActionResult GetPagedDeals([FromQuery] AddressToSearchDTO addressToSearch,[FromQuery] PagedParameters pagedParameters)
+    public IActionResult GetPagedDeals([FromQuery] AddressToSearchDTO addressToSearch, [FromQuery] PagedParameters pagedParameters)
     {
         try
         {
@@ -625,12 +625,12 @@ public class VendorController : ControllerBase
             return StatusCode(500, $"Internal server Error. Please try later, error : {ex}");
         }
     }
-    
+
     [HttpGet]
     [Route("VendorHaveDynamicInetgration")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public IActionResult VendorHaveDynamicInetgration( Guid vendorId, VendorType vendorType)
+    public IActionResult VendorHaveDynamicInetgration(Guid vendorId, VendorType vendorType)
     {
         try
         {
@@ -656,7 +656,7 @@ public class VendorController : ControllerBase
         try
         {
             _vendorService.MatchBrands(matching);
-            return Created(nameof(MatchBrands),null);
+            return Created(nameof(MatchBrands), null);
         }
         catch (Exception ex)
         {

@@ -1059,22 +1059,56 @@ public class VendorService : IVendorService
         }
     return null;
 }
-    private string getMatchingKey(List<IntegrationParameterDTO> parametersOUT, Matching matchKey, List<JToken> selectedToken)
+    private string getMatchingKey(List<IntegrationParameterDTO> parametersOUT, Matching matchKey, List<JToken> selectedToken,int newIndex = 0)
     {
         string value = string.Empty;
         string key = string.Empty;
         IntegrationParameterDTO Param = parametersOUT.Find(p => p.MatchWithKey == matchKey);
         if (Param != null)
+        {
             key = Param.Key;
+        }
+                        
         var path = selectedToken.Find(p => p.Path == key);
+
         if (path != null)
         {
             value = path.Values().First().ToString();
+        }else
+        {
+            /*int newIndex = 1; // Replace '0' with '1'*/
+
+            int startIndex = key.IndexOf('[');
+            int endIndex = key.IndexOf(']');
+
+            if (startIndex != -1 && endIndex != -1)
+            {
+                string indexSubstring = key.Substring(startIndex + 1, endIndex - startIndex - 1);
+
+                if (int.TryParse(indexSubstring, out int currentIndex))
+                {
+                    string newSubstring = newIndex.ToString();
+                    key = key.Remove(startIndex + 1, indexSubstring.Length).Insert(startIndex + 1, newSubstring);
+
+                    Console.WriteLine("Modified key: " + key);
+                    path = selectedToken.Find(p => p.Path == key);
+                    value = path.Values().First().ToString();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid format, unable to modify.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid format, unable to modify.");
+            }
+         
         }
 
-/*
-      var test = selectedToken.Where(p => p is JProperty && ((JProperty)p).Name.ToString() == key)
-                                         .Select(p => ((JProperty)p).Value).FirstOrDefault().ToString();*/
+        /*
+              var test = selectedToken.Where(p => p is JProperty && ((JProperty)p).Name.ToString() == key)
+                                                 .Select(p => ((JProperty)p).Value).FirstOrDefault().ToString();*/
 
 
 
@@ -1470,27 +1504,31 @@ public class VendorService : IVendorService
             
             bool readyToAdd = false;
             var parametersOUT = GetMethodParametersOUT(dynamicIntegration.IntegrationMethod.FirstOrDefault());
-            foreach (var item in responseJson)
+            int newIndex = 0;
+            foreach (var item in responseJson.FirstOrDefault().First())
             {
+
                 var brand = new DealsDTO();
+                
                 foreach (var parameter in parametersOUT)
                 {
                     if(parameter.MatchWithKey == Matching.BrandName)
                     { 
-                        if(item?.First?.First?.Children().Count()>0)
+                         if(item?.Count()>0)
                         {
-                            brand.brandName = getMatchingKey(parametersOUT, Matching.BrandName, item?.First?.First?.Children().ToList());
+                            brand.brandName = getMatchingKey(parametersOUT, Matching.BrandName, item?.ToList(), newIndex);
                         }
                     }
                     if (parameter.MatchWithKey == Matching.BrandId)
                     {
-                        if (item?.First?.First?.Children().Count() > 0)
+                        if (item?.Count() > 0)
                         {
-                            brand.BrandId = getMatchingKey(parametersOUT, Matching.BrandId, item?.First?.First?.Children().ToList());
+                            brand.BrandId = getMatchingKey(parametersOUT, Matching.BrandId, item?.ToList(), newIndex);
                         }
                     }
                 }
-            brands.Add(brand);
+                brands.Add(brand);
+                newIndex++;
             }
         }
         return brands;

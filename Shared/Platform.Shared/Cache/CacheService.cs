@@ -13,8 +13,8 @@ namespace Platform.Shared.Cache
 
         public CacheService()
         {
-            var redis = ConnectionMultiplexer.Connect(Microservice.Redis);
-            _cacheDb = redis.GetDatabase();
+           /* var redis = ConnectionMultiplexer.Connect(Microservice.Redis);
+            _cacheDb = redis.GetDatabase();*/
         }
 
         public T GetData<T>(string key)
