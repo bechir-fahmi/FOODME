@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(45deg, #7175da, #9790f2);
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.course {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  margin-top: 20px;
+  overflow: hidden;
+  width: 500px;
+  height: 150px;
+  margin-right: 20px;
+}
+.title {
+  color: black !important;
+}
+.course h6 {
+  color: black;
+  opacity: 0.6;
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.course h2 {
+  color: white;
+  letter-spacing: 1px;
+  margin: 10px 0;
+}
+.course h3 {
+  color: white;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+.course-preview {
+  background-color: orange;
+  color: #fff;
+  padding: 20px;
+  max-width: 250px;
+  width: 35%;
+  height: 150px;
+}
+.course-preview a {
+  display: inline-block;
+  font-size: 12px;
+  opacity: 0.6;
+  color: black;
+  text-decoration: none;
+}
+.course-preview-green {
+  background-color: green;
+  color: #fff;
+  padding: 20px;
+  max-width: 250px;
+  width: 35%;
+  height: 150px;
+}
+.course-preview-green a {
+  display: inline-block;
+  font-size: 12px;
+  opacity: 0.6;
+  color: white;
+  text-decoration: none;
+}
+.course-preview-green h6 {
+  color: white;
+}
+h4 {
+  color: white;
+}
+.course-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  width: 100%;
+}
+
+.progress-container {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  text-align: right;
+  width: 150px;
+}
+
+.progress {
+  background-color: #ddd;
+  border-radius: 3px;
+  height: 5px;
+  width: 100%;
+}
+
+.progress::after {
+  border-radius: 3px;
+  background-color: #2a265f;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 66%;
+}
+
+.progress-text {
+  font-size: 10px;
+  opacity: 0.6;
+  letter-spacing: 1px;
+}
+
+.btn {
+  background-color: orange;
+  border: 0;
+  border-radius: 50px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 25px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  letter-spacing: 1px;
+}
+
+/* SOCIAL PANEL CSS */
+.social-panel-container {
+  position: fixed;
+  right: 0;
+  bottom: 80px;
+  transform: translateX(100%);
+  transition: transform 0.4s ease-in-out;
+}
+
+.social-panel-container.visible {
+  transform: translateX(-10px);
+}
+
+.social-panel {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 16px 31px -17px rgba(0, 31, 97, 0.6);
+  border: 5px solid #001f61;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Muli';
+  position: relative;
+  height: 169px;
+  width: 370px;
+  max-width: calc(100% - 10px);
+}
+
+.social-panel button.close-btn {
+  border: 0;
+  color: #97a5ce;
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.social-panel button.close-btn:focus {
+  outline: none;
+}
+
+.social-panel p {
+  background-color: #001f61;
+  border-radius: 0 0 10px 10px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 2px 17px 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 235px;
+}
+
+.social-panel p i {
+  margin: 0 5px;
+}
+
+.social-panel p a {
+  color: #ff7500;
+  text-decoration: none;
+}
+
+.social-panel h4 {
+  margin: 20px 0;
+  color: #97a5ce;
+  font-family: 'Muli';
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+.social-panel ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-panel ul li {
+  margin: 0 10px;
+}
+
+.social-panel ul li a {
+  border: 1px solid #dce1f2;
+  border-radius: 50%;
+  color: #001f61;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  text-decoration: none;
+}
+
+.social-panel ul li a:hover {
+  border-color: #ff6a00;
+  box-shadow: 0 9px 12px -9px #ff6a00;
+}
+
+.floating-btn {
+  border-radius: 26.5px;
+  background-color: #001f61;
+  border: 1px solid #001f61;
+  box-shadow: 0 16px 22px -17px #03153b;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 12px 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.floating-btn:hover {
+  background-color: #ffffff;
+  color: #001f61;
+}
+
+.floating-btn:focus {
+  outline: none;
+}
+
+.floating-text {
+  background-color: orangered;
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+  font-family: 'Muli';
+  padding: 7px 15px;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 998;
+}
+
+.floating-text a {
+  color: #ff7500;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 480px) {
+  .social-panel-container.visible {
+    transform: translateX(0px);
+  }
+
+  .floating-btn {
+    right: 10px;
+  }
+}
+// CSS to filters
+.select {
+  height: 50px;
+  width: 140px;
+}
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: '';
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,
+.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.title-description {
+  font-weight: 600;
+}
+.btn-search {
+  margin-top: 22px;
+  height: 40px;
+}
+.filters-div {
+  margin-top: 20px;
+}
+.titles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 17px 10px 10px 10px;
+  width: 65%;
+}
+.descriptions {
+  display: grid;
+}
+.input-custNumber {
+  background: transparent;
+}
+.input-compDeliv {
+  background: transparent;
+}
+.input-clientName {
+  background: transparent;
+}
+.input-cost {
+  background: transparent;
+}
+.input-value {
+  background: transparent;
+}
+.order-cost {
+  display: flex;
+}
+th,
+td {
+  padding-left: 15px;
+  text-align: left;
+}
+.div-info {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0px;
+}
+.titles-div {
+  display: flex;
+}
+.grid-inf {
+  display: grid;
+}
+
+#main {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid #c3c3c3; */
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#mainDiv {
+  width: 100%;
+  height: 100%;
+  padding-right: 20px !important;
+}
+.withDate {
+  width: 26px;
+}
+.button-filtre {
+  background-color: #4272d7;
+}
+.button-search {
+  width: 150px;
+  height: 55px;
+}
+// CSS 24/04
+.mdc-tab__text-label {
+  font-size: 47px !important;
+  font-weight: 900 !important;
+}

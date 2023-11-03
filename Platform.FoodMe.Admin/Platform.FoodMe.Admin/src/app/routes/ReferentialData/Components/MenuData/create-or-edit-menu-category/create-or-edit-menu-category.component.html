@@ -1,0 +1,65 @@
+<h2 style="margin-left: 20px;" mat-dialog-title>{{title}}</h2>
+<form #MenuCategoryForm="ngForm" (ngSubmit)="save()">
+  <section>
+
+    <mat-card class="demo-card" style="margin-left: 20px;">
+      <div class="row" style="margin-top: 20px;">
+       
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Name</mat-label>
+              <input matInput [(ngModel)]="MenuCategory.nameLabelCode" name="nameLabelCode" required="true">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Menu </mat-label>
+                  <mtx-select [items]="menus" bindLabel="nameLabelCode" bindValue="id"
+                  [(ngModel)]="MenuCategory.parentMenu">
+                  </mtx-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4" style="width: 410px;">
+          <mat-form-field class="demo-full-width" style="margin-right: 5px;">
+            <mat-label>Priority</mat-label>
+            <input matInput [(ngModel)]="MenuCategory.priority">
+          </mat-form-field>
+        </div>
+       
+      </div>
+      <div class="row">
+
+        <div class="col-lg-2" style="margin-top: 40px;">
+          <mat-checkbox></mat-checkbox>
+          <span>Is active</span>
+      </div>
+  
+        <div class="col-lg-9" style="margin-bottom: 10px;">
+        
+            <span>Description</span>
+            <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="MenuCategory.descriptionLabelCode" name="descriptionLabelCode" rows="3"></textarea>
+          
+        </div>
+
+        <div class="col-lg-1">
+         
+      </div>
+      
+      
+  
+       
+    </div>
+    </mat-card>
+   
+    
+  </section>
+
+<mat-dialog-actions align="end">
+  <button style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" [disabled]="!MenuCategoryForm.form.valid">Submit</button>
+  <button style="float: right" mat-raised-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>
+</form>
+
+
+

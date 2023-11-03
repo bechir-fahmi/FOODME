@@ -1,0 +1,85 @@
+<div class="row">
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                                 filter                                  -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div class="col d-flex justify-content-end start" >
+    <ng-select [items]="brands" [multiple]="true" [(ngModel)]="selectedBrands" placeholder="restaurants filter">
+      <ng-template ng-label-tmp let-item="item">
+        {{ item.name }}
+      </ng-template>
+      <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+        <input type="checkbox" [ngModel]="item.selected" (ngModelChange)="item.selected = $event">
+        {{ item.name }}
+        <ng-container *ngIf="item.restaurants && item.restaurants.length">
+          <ul>
+            <li *ngFor="let restaurant of item.restaurants">
+              <input type="checkbox" [ngModel]="restaurant.selected" (ngModelChange)="restaurant.selected = $event">
+              {{ restaurant.name }}
+            </li>
+          </ul>
+        </ng-container>
+      </ng-template>
+    </ng-select>
+
+  </div>
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                             Calendars List                              -->
+  <!-- ----------------------------------------------------------------------- -->
+  <div class="col d-flex justify-content-end">
+    <button type="button" mat-raised-button color="primary" class="m-t-8 m-1 "
+            routerLink="/businessHours/open-hours">Add calender</button>
+  </div>
+  <div class="col-sm-12">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Calendars List
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-table [dataSource]="dataSource" matSort>
+
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Name
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.nameLanguageResources[0].value}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              Description
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row"> Description </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <div class="matero-user-panel-icons">
+
+                <button  [routerLink]="['/businessHours/open-hours/',element.id]">
+                  View
+                </button>/
+                <button  [routerLink]="['/businessHours/open-hours/',element.id]">
+                  Edit
+                </button>/
+                <button >
+                 Delete
+                </button>/
+                <button >
+                 Clone
+                </button>
+              </div>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;">
+          </mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

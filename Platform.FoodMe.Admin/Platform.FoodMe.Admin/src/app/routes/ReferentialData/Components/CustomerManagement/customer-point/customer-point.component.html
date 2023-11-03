@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-sm-10 col-12">
+    <h4>Add Customer Points</h4>
+  </div>
+  <div class="col-sm-2 col-12">
+    <button class="btn-add-point" mat-raised-button (click)="createCustomerPoint()">
+      Add Customer point
+    </button>
+  </div>
+</div>
+<div class="row example-container">
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="orderId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Order Id </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.orderId }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="earnedPointBy">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Earned Point By </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.earnedPointBy }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="points">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Points </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.points }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div class="matero-user-panel-icons">
+          <button mat-icon-button (click)="deleteCustomerPoint(element.id)">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+          <button mat-icon-button (click)="editCustomerPoint(element)">
+            <mat-icon>update</mat-icon>
+          </button>
+          <button mat-icon-button (click)="viewCustomerPoint(element)">
+            <mat-icon>info</mat-icon>
+          </button>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

@@ -1,0 +1,121 @@
+<h2 style="margin-left: 20px;" mat-dialog-title>{{page}}</h2>
+<form #DiscountReductionForm="ngForm"[formGroup]="formValue">
+  <mat-card class="demo-card" style="margin-left: 20px;">
+
+    <div class="row" style="margin-top: 20px;">
+
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Name</mat-label>
+            <input matInput name="name" required="true" formControlName="name">
+          </mat-form-field>
+        </div>
+
+      <div class="col-lg-3" >
+
+        <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+          <mat-label>StartDate</mat-label>
+          <input type="date"  matInput  name="activationDate" formControlName="activationDate">
+        </mat-form-field>
+
+      </div>
+      <div class="col-lg-3">
+        <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+          <mat-label>EndDate</mat-label>
+          <input type="date"  matInput  name="expirationDate" formControlName="expirationDate">
+        </mat-form-field>
+      </div>
+      <div class="col-lg-3">
+
+
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-lg-4">
+        <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+          <mat-label>Discount</mat-label>
+          <input type="number" matInput  name="discount" formControlName="discount" >
+        </mat-form-field>
+
+      </div>
+
+
+      <div class="col-lg-4">
+        <mat-form-field class="example-full-width" appearance="fill" class="style-filtre"  >
+          <mat-label>pricingType</mat-label>
+          <mat-select name="selectedOption" #select="matSelect" formControlName="pricingType">
+            <mat-option value=0> Free</mat-option>
+            <mat-option value=1>Percent</mat-option>
+            <mat-option value=2>FixPrice</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-4" style="width: 410px;">
+
+      </div>
+  </div>
+
+
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-lg-3">
+        <td><mat-checkbox formControlName="sunday"></mat-checkbox>
+          <span>sunday</span></td>
+      </div>
+      <div class="col-lg-3">
+        <td><mat-checkbox formControlName="monday"></mat-checkbox>
+          <span>monday</span></td>
+      </div>
+      <div class="col-lg-3">
+        <td><mat-checkbox formControlName="tuesday"></mat-checkbox>
+          <span>tuesday</span></td>
+
+      </div>
+
+      <div class="col-lg-3">
+        <td><mat-checkbox formControlName="wednesday"></mat-checkbox>
+          <span>wednesday</span></td>
+
+      </div>
+
+
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+
+      <div class="col-lg-3">
+        <td><mat-checkbox  formControlName="thursday"></mat-checkbox>
+          <span>thursday</span></td>
+
+      </div>
+
+      <div class="col-lg-3">
+        <td><mat-checkbox formControlName="friday"></mat-checkbox>
+          <span>friday</span></td>
+
+      </div>
+
+      <div class="col-lg-3">
+        <td><mat-checkbox formControlName="saturday"></mat-checkbox>
+          <span>saturday</span></td>
+      </div>
+
+      <div class="col-lg-3">
+        <td><mat-checkbox formControlName="status"></mat-checkbox>
+          <span>Is active</span></td>
+
+      </div>
+
+
+    </div>
+  </mat-card>
+<mat-card>
+<mat-dialog-actions align="end">
+  <button *ngIf="page=='create'" style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" (click)="save()">Add</button>
+  <button *ngIf="page=='edit'" style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" (click)="update()">Update</button>
+  <button style="float: right;" mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
+</mat-card>
+
+
+</form>

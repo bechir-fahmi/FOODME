@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <h3>Details Menu Category </h3>
+    </div>
+
+
+    <div class="row">
+        <div class="col-6 mb-3" *ngFor="let  lang of menuCategorey.nameLanguageResources">
+            <h6>Name:</h6>
+            {{lang.value}}
+        </div>
+        <div class="col-6 mb-3">
+            <h6>Rank :</h6>
+            {{menuCategorey.rank}}
+        </div>
+    </div>
+    <div class="row">
+   
+        <div class="col-6 mb-3">
+            <h6> Menu:</h6>
+            {{menuCategorey.menuId}}
+        </div>
+    </div>
+</div>

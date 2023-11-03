@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobScheduling", "JobScheduling\JobScheduling.csproj", "{CF1916AE-50E5-4835-81E9-6AC247FC7C27}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.Shared", "..\..\Shared\Platform.Shared\Platform.Shared.csproj", "{73CEB6F2-77A9-46AA-8758-CA1609FF74FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF1916AE-50E5-4835-81E9-6AC247FC7C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF1916AE-50E5-4835-81E9-6AC247FC7C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF1916AE-50E5-4835-81E9-6AC247FC7C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF1916AE-50E5-4835-81E9-6AC247FC7C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73CEB6F2-77A9-46AA-8758-CA1609FF74FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73CEB6F2-77A9-46AA-8758-CA1609FF74FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73CEB6F2-77A9-46AA-8758-CA1609FF74FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73CEB6F2-77A9-46AA-8758-CA1609FF74FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3494A7B9-34DF-4A6F-AC8E-D80374A66D30}
+	EndGlobalSection
+EndGlobal

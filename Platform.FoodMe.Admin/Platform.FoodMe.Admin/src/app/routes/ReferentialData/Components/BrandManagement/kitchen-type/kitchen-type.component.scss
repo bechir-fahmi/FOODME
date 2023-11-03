@@ -1,0 +1,34 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+.btn-add-carhopAdress {
+  background-color: #4272d7;
+  color: white;
+  width: 220px;
+  height: 45px;
+}
+mat-cell,
+mat-header-cell,
+mat-footer-cell {
+  overflow: visible;
+}
+.demo-full-width {
+  width: 100%;
+}

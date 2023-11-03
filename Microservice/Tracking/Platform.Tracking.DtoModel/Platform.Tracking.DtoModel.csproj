@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="GetDeals\AggregatorItemDTO.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Platform.Shared\Platform.Shared.csproj" />
+    <ProjectReference Include="..\Platform.Tracking.BusinessModel\Platform.Tracking.BusinessModel.csproj" />
+  </ItemGroup>
+
+</Project>

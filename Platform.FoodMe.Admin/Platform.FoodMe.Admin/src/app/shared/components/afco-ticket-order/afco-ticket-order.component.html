@@ -1,0 +1,28 @@
+<div class="course">
+    <div class="course-info">
+      <div [ngClass]="(order.orderStatus == 65)? 'course-preview' : 'course-preview-green'" >
+        <h6>Jahez</h6>
+        <h4>
+          SDM-ID: <br />
+          123654
+        </h4>
+        <a href="#">View Détails <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="titles row">
+        <div class="form-group col-12 titles-div">
+          <div class="col-6 grid-inf">
+            <h6 class="title">Cost:</h6>
+            <h6 class="title-description">Customer:</h6>
+            <h6 class="title-description">Number:</h6>
+            <h6 class="title-description">Deliv Comp:</h6>
+          </div>
+          <div class="col-6 grid-inf">
+ {{order.cost}}
+            <input class="input-value" type="text" value="Client test" />
+            <input class="input-value" type="text" value="00 22 55 66 998" />
+            <input class="input-value" type="text" value="company 1" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,132 @@
+
+<!--<div class="row" *ngIf="showInputFiltre">-->
+<!--  <mat-card>-->
+<!--    <mat-card-header>-->
+<!--      <div class="row">-->
+<!--        <div class="col-sm-1 col-12">-->
+<!--          <mat-icon>filter_list</mat-icon>-->
+<!--        </div>-->
+<!--        <div class="col-sm-10 col-12" >-->
+<!--          <mat-card-title>Filter Options</mat-card-title>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </mat-card-header>-->
+<!--    <mat-divider></mat-divider>-->
+<!--    <mat-card-content>-->
+<!--      <div class="row">-->
+<!--        <div class="col-sm-4 col-12">-->
+<!--          <form class="example-form">-->
+<!--            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre"  >-->
+<!--              <mat-label>name-->
+<!--              </mat-label>-->
+<!--              <input type="text" matInput>-->
+<!--              <mat-autocomplete >-->
+<!--                <mat-option >-->
+<!--                </mat-option>-->
+<!--              </mat-autocomplete>-->
+<!--            </mat-form-field>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--        <div class="col-sm-4 col-12">-->
+<!--          <form class="example-form">-->
+<!--            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre"  >-->
+<!--              <mat-label>pricingType</mat-label>-->
+<!--              <mat-select name="selectedOption" #select="matSelect">-->
+<!--                <mat-option value=1> Free</mat-option>-->
+<!--                <mat-option value=0>Percent</mat-option>-->
+<!--                <mat-option value=0>FixPrice</mat-option>-->
+<!--              </mat-select>-->
+<!--            </mat-form-field>-->
+
+<!--          </form>-->
+<!--        </div>-->
+<!--        <div class="col-sm-4 col-12">-->
+<!--          <form class="example-form">-->
+<!--            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre"  >-->
+<!--              <mat-label>Status</mat-label>-->
+<!--              <mat-select  #select="matSelect">-->
+<!--                <mat-option value=1> Active</mat-option>-->
+<!--                <mat-option value=0>Inactive</mat-option>-->
+<!--              </mat-select>-->
+<!--            </mat-form-field>-->
+
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </mat-card-content>-->
+<!--    <mat-card-actions>-->
+<!--      <button class="button-filtre" mat-raised-button color="primary">RESET</button>-->
+<!--      <button class="button-filtre" mat-raised-button color="accent">-->
+<!--        <mat-icon>filter_list</mat-icon> Filter-->
+<!--      </button>-->
+<!--    </mat-card-actions>-->
+<!--  </mat-card>-->
+<!--</div>-->
+<!--<button class="button-filtre" mat-raised-button color="primary"   (click)="showInputFiltre = true">-->
+<!--  <mat-icon>filter_list</mat-icon> Show Filter-->
+<!--</button>-->
+<!--<div class="row">-->
+<!--  <div class="example-header">-->
+<!--    <button mat-raised-button style="float: right; margin-right: 10px;" (click)="exportExcel()">-->
+<!--      <mat-icon>get_app</mat-icon> Export Excel-->
+<!--    </button>-->
+<!--    <button class="btn-addPromBogo" mat-raised-button style="float: right" (click)="createDeliveryOffer()">-->
+<!--      Add Dilivery Offre-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--  <div class="example-container">-->
+<!--    <mat-table [dataSource]="dataSource" matSort>-->
+<!--      <ng-container matColumnDef="name">-->
+<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>-->
+<!--        <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>-->
+<!--      </ng-container>-->
+
+<!--      <ng-container matColumnDef="activationDate">-->
+<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> activation Date </mat-header-cell>-->
+<!--        <mat-cell *matCellDef="let row"> {{ row.activationDate }} </mat-cell>-->
+<!--      </ng-container>-->
+
+<!--      <ng-container matColumnDef="expirationDate">-->
+<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> expiration Date</mat-header-cell>-->
+<!--        <mat-cell *matCellDef="let row"> {{ row.expirationDate }} </mat-cell>-->
+<!--      </ng-container>-->
+
+<!--      <ng-container matColumnDef="pricingType">-->
+<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> pricing Type</mat-header-cell>-->
+<!--        <mat-cell *matCellDef="let row"> {{ row.pricingType }} </mat-cell>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="deliveryAmount">-->
+<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> delivery Amount</mat-header-cell>-->
+<!--        <mat-cell *matCellDef="let row"> {{ row.deliveryAmount }} </mat-cell>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="status">-->
+<!--        <mat-header-cell *matHeaderCellDef mat-sort-header> Is Active </mat-header-cell>-->
+<!--        <mat-cell *matCellDef="let row"><i *ngIf="row.status==1" title="True" class="fa fa-check-circle text-success ng-tns-c257-20"></i><i *ngIf="row.status==0" title="True" class="fa fa-check-circle text-dark ng-tns-c257-20"></i></mat-cell>-->
+<!--      </ng-container>-->
+<!--      <ng-container matColumnDef="actions">-->
+<!--        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>-->
+<!--        <mat-cell *matCellDef="let element">-->
+<!--          <div class="matero-user-panel-icons">-->
+<!--            <button mat-icon-button (click)="deleteDeliveryOffer(element.id)">-->
+<!--              <mat-icon>delete_outline</mat-icon>-->
+<!--            </button>-->
+<!--            <button mat-icon-button (click)="editDeliveryOffer(element)">-->
+<!--              <mat-icon>edit</mat-icon>-->
+<!--            </button>-->
+<!--            <button mat-icon-button (click)="viewDeliveryOffer(element)">-->
+<!--              <mat-icon>visibility</mat-icon>-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </mat-cell>-->
+<!--      </ng-container>-->
+
+<!--      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
+<!--      <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">-->
+<!--      </mat-row>-->
+<!--    </mat-table>-->
+
+<!--    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>-->
+<!--  </div>-->
+<!--</div>-->

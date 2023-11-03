@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="example-header">
+    <button class="btn-add-extmodifgrp" mat-raised-button style="float: right" (click)="createExtraModifierGroup()">
+      Add ExtraModifierGroup
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <button class="button-filtre" mat-raised-button color="accent" (click)="showFiltre()">
+      <mat-icon>filter_list</mat-icon> Filter
+    </button>
+  </div>
+</div>
+<form class="form-group" method="get" action="#">
+  <div class="row filters-div" *ngIf="isFiltreShowed">
+    <div class="form-group col-sm-2">
+      <mat-form-field class="example-full-width">
+        <mat-label>arName</mat-label>
+        <input matInput  />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field class="example-full-width">
+        <mat-label>enName</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2">
+      <mat-form-field class="example-full-width">
+        <mat-label>urName</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-2 ">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>  Visible</mat-label>
+        <mat-select >
+          <mat-option *ngFor="let ws of isActiveSelect" [value]="ws.value">
+            {{ ws.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-2">
+      <button class="button-search" mat-raised-button color="primary">Search</button>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="example-container">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.languageResources[0].value }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="min">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Min </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.minRequiredQuantityOfModifier }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="max">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Max </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.maxQuantityOfModifier }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="rank">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Rank </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{getRankModifyGroup( row.adjective)}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div class="matero-user-panel-icons">
+            <button mat-icon-button (click)="deleteExtraModifierGroup(element.id)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editExtraModifierGroup(element)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="viewExtraModifierGroup(element)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

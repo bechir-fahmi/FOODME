@@ -1,0 +1,212 @@
+<div class="row">
+  <div class="col-sm-12">
+    <form [formGroup]="workingTimeForm" (ngSubmit)="onSubmit()">
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Calendar
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="row">
+          <div class="col-lg-9">
+
+            <div formArrayName="usualDailyWorkingTimes">
+              <div *ngFor="let day of daysOfWeek; let i = index">
+                <tbody>
+                  <tr [formGroupName]="i">
+
+                    <td class="mr-2">
+                      <h6 formControlName="day">{{ day.name }}</h6>
+                    </td>
+                    <td class="m-2">
+                      <mat-form-field class="m-r-8">
+                        <mat-label>Morning Open Time</mat-label>
+                        <mat-select name="StartTime" formControlName="morningStartTime">
+                          <mat-option>-- None --</mat-option>
+                          <mat-option *ngFor="let time of times" [value]="time">{{time}}</mat-option>
+
+                        </mat-select>
+                      </mat-form-field>
+                    </td>
+                    <td class="m-2">
+                      <mat-form-field class="m-r-8">
+                        <mat-label>Morning Close Time</mat-label>
+                        <mat-select name="CloseTime" formControlName="morningCloseTime">
+                          <mat-option>-- None --</mat-option>
+                          <mat-option *ngFor="let time of times" [value]="time">{{time}}</mat-option>
+
+                        </mat-select>
+                        <mat-error *ngIf="workingTimeForm.get('morningCloseTime')?.invalid">
+                          {{'validations.required'}}
+                        </mat-error>
+                      </mat-form-field>
+                    </td>
+                    <td>
+                    <td class="m-2">
+                      <mat-form-field class="m-r-8">
+                        <mat-label>Afternoon Open Time</mat-label>
+                        <mat-select name="StartTime" formControlName="afterNoonStartTime">
+                          <mat-option>-- None --</mat-option>
+                          <mat-option *ngFor="let time of afternoonTimes" [value]="time">{{time}}</mat-option>
+
+                        </mat-select>
+                      </mat-form-field>
+                    </td>
+                    <td class="m-2">
+                      <mat-form-field class="m-r-8">
+                        <mat-label>Afternoon Close Time</mat-label>
+                        <mat-select name="CloseTime" formControlName="afterNoonCloseTime">
+                          <mat-option>-- None --</mat-option>
+                          <mat-option *ngFor="let time of afternoonTimes" [value]="time">{{time}}</mat-option>
+
+                        </mat-select>
+                      </mat-form-field>
+                    </td>
+                    <!-- <td>
+                      <button mat-icon-button>
+                        <mat-icon>add</mat-icon>
+                      </button>
+                    </td> -->
+                    <td class="m-2">
+                      <mat-checkbox formControlName="isClosed">Colsed</mat-checkbox>
+                    </td>
+                  </tr>
+                </tbody>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <ng-select [items]="brands" [multiple]="true" [(ngModel)]="selectedBrands" placeholder="choose restaurants">
+              <ng-template ng-label-tmp let-item="item">
+                {{ item.name }}
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                <input type="checkbox" [ngModel]="item.selected" (ngModelChange)="item.selected = $event">
+                {{ item.name }}
+                <ng-container *ngIf="item.restaurants && item.restaurants.length">
+                  <ul>
+                    <li *ngFor="let restaurant of item.restaurants">
+                      <input type="checkbox" [ngModel]="restaurant.selected" (ngModelChange)="restaurant.selected = $event">
+                      {{ restaurant.name }}
+                    </li>
+                  </ul>
+                </ng-container>
+              </ng-template>
+            </ng-select>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <!-- --------------------------  Exception Criterias --------------------------- -->
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Exception Criterias
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+
+          <div class="row">
+            <div class="col-6">
+              <label for="descriptionLabelCode" class="form-label mt-3">Description:</label>
+              <input type="text" class="form-control" formControlName="descriptionLabelCode" id="descriptionLabelCode"
+                     placeholder="Enter description" name="descriptionLabelCode">
+
+            </div>
+
+            <div class="col-3">
+              <label for="dateTime" class="form-label mt-3">Start Date:</label>
+              <input type="date" class="form-control" formControlName="dateTime" id="start_date"
+                     placeholder="Enter Start Date" name="dateTime">
+            </div>
+
+            <div formArrayName="quantities">
+              <!-- <p>Check the box below to set special hours for closure dates above</p> -->
+              <div class="row" *ngFor="let item of additionalHour().controls; let i=index"
+                   [formGroupName]="i">
+                <div class="row m-2">
+                  <div class="col-2">
+                    Special Hours:
+                  </div>
+
+                  <div class="col-3">
+                    <mat-form-field class="m-r-8">
+                      <mat-label>Close Time</mat-label>
+                      <mat-select name="CloseTime" formControlName="morningCloseTime">
+                        <mat-option>-- None --</mat-option>
+                        <mat-option *ngFor="let time of times" [value]="time">{{time}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-3">
+                    <mat-form-field class="m-r-8">
+                      <mat-label>Close Time</mat-label>
+                      <mat-select name="CloseTime" formControlName="morningCloseTime">
+                        <mat-option>-- None --</mat-option>
+                        <mat-option *ngFor="let time of times" [value]="time">{{time}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-1">
+                    <button (click)="removeAdditional(i)" class="btn btn-danger"> Remove<span
+                            class="bi bi-trash"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <span (click)="addAdditional()" class="btn btn-outline-info mb-2">
+                  Add additional hour
+                </span>
+              </div>
+              <div class="text-center">
+                <button mat-raised-button color="primary" class="m-t-8 m-1" [disabled]="workingTimeForm.invalid">Save</button>
+                <button type="button" mat-raised-button color="secondry" class="m-t-8 m-1" (click)="cancel()" >Cancel</button>
+              </div>
+            </div>
+          </div>
+
+      </mat-card-content>
+    </mat-card>
+    <!-- -------------------- Pause this Store Immediately --------------------- -->
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Pause this Store Immediately
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <button mat-raised-button color="primary" class="m-t-8 m-1">Pause Store</button>
+
+      </mat-card-content>
+    </mat-card>
+    <!-- -------------------------- Upcoming Closures -------------------------- -->
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Upcoming Closures
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+
+      </mat-card-content>
+    </mat-card>
+    <!-- ---------------------------- Last Closures ---------------------------- -->
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Last Closures
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+
+      </mat-card-content>
+    </mat-card>
+    </form>
+  </div>
+
+</div>

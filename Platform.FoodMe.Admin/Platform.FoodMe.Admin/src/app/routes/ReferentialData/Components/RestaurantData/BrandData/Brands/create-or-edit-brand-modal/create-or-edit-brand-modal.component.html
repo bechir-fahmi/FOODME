@@ -1,0 +1,177 @@
+<h2 style="margin-left: 20px;" mat-dialog-title>{{title}}</h2>
+<form #brandForm="ngForm" (ngSubmit)="save()">
+
+  <section>
+
+    <mat-card class="demo-card" style="margin-left: 20px;">
+      <div class="row" style="margin-top: 20px;">
+       
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="Brand.nameLabelCode" [readonly]="view" name="nameLabelCode" required="true">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Contact Name</mat-label>
+            <mtx-select [items]="contacts" bindLabel="nameLabelCode" [readonly]="view" bindValue="id"
+            [(ngModel)]="Brand.contact">
+            </mtx-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width">
+            <mat-label>WebSite</mat-label>
+            <input matInput [(ngModel)]="Brand.webSite" [readonly]="view" name="webSite">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3" style="width: 300px;">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Country</mat-label>
+            <mtx-select [items]="countries" bindLabel="nameLabelCode" [readonly]="view" bindValue="id"
+            [(ngModel)]="Brand.country">
+            </mtx-select>
+          </mat-form-field>
+        </div>
+      
+       
+       
+       
+      </div>
+
+      <div class="row" style="margin-top: 20px;">
+       
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Company</mat-label>
+            <mtx-select [items]="companies" bindLabel="name" [readonly]="view"  bindValue="id"
+            [(ngModel)]="Brand.company">
+            </mtx-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Contact Number</mat-label>
+            <input type="tel" matInput [(ngModel)]="Brand.contactNumber" [readonly]="view" name="contactNumber">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Contact Mobile</mat-label>
+            <input type="tel" matInput [(ngModel)]="Brand.contactMobile" [readonly]="view" name="contactMobile">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3" style="width: 300px;">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Contact Email</mat-label>
+            <input type="email" matInput [(ngModel)]="Brand.contactEmail" [readonly]="view" name="contactEmail">
+          </mat-form-field>
+        </div>
+      
+       
+       
+       
+      </div>
+
+      <div class="row" style="margin-top: 20px;">
+       
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Jahez menuId</mat-label>
+            <input type="number" matInput [(ngModel)]="Brand.JahezMenuId" [readonly]="view" name="JahezMenuId">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>HungerStation Chain Code</mat-label>
+            <input  matInput [(ngModel)]="Brand.HungerStationChainCode" [readonly]="view" name="HungerStationChainCode">
+          </mat-form-field>
+        </div>
+        
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width">
+            <mat-label>HungerStation menuId</mat-label>
+            <input type="number" matInput [(ngModel)]="Brand.HungerStationMenuId" [readonly]="view" name="HungerStationMenuId">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+          <td><mat-checkbox></mat-checkbox>
+            <span>Have Delivery service</span></td>
+        </div>
+      
+       
+       
+       
+      </div>
+
+      <div class="row" style="margin-top: 20px;">
+       
+        <div class="col-lg-3">
+          <td><mat-checkbox></mat-checkbox>
+            <span>Have Delivery applications</span></td>
+         
+        </div>
+        <div class="col-lg-3">
+          <td><mat-checkbox></mat-checkbox>
+            <span>Is active</span></td>
+        </div>
+        
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Branches number</mat-label>
+            <input type="number" matInput [(ngModel)]="Brand.branchesNumber" [readonly]="view" name="branchesNumber">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3" style="width: 300px;">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Kitchens</mat-label>
+            <mtx-select [items]="kitchenTypes" bindLabel="name" [readonly]="view"  bindValue="id"
+          [(ngModel)]="Brand.kitchenType">
+          </mtx-select>
+          </mat-form-field>
+         
+        </div>
+      
+       
+       
+       
+      </div>
+
+      <div class="row" style="margin-top: 20px;">
+       
+        <div class="col-lg-6">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Jahez api key</mat-label>
+            <input  matInput [(ngModel)]="Brand.JahezApiKey" [readonly]="view" name="JahezApiKey">
+          </mat-form-field>
+        </div>
+        
+        <div class="col-lg-6" style="width: 610px;">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Jahez secret code</mat-label>
+            <input  matInput [(ngModel)]="Brand.JahezSecretCode" [readonly]="view" name="JahezSecretCode">
+          </mat-form-field>
+        </div>
+       
+      
+       
+       
+       
+      </div>
+  
+   
+    </mat-card>
+   
+    
+  </section>
+
+<mat-dialog-actions align="end">
+  <button *ngIf="!view" style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" [disabled]="!brandForm.form.valid" mat-dialog-close>Submit</button>
+  <button *ngIf="!view" style="float: right" mat-raised-button mat-dialog-close>Cancel</button>
+  
+</mat-dialog-actions>
+</form>
+
+
+

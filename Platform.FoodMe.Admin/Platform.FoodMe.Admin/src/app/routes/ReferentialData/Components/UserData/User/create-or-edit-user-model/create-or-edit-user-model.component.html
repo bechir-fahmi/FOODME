@@ -1,0 +1,56 @@
+
+<h2 style="margin-left: 20px;" mat-dialog-title>{{title}}</h2>
+<form #UserForm="ngForm" (ngSubmit)="save()">
+
+  <section>
+
+    <mat-card class="demo-card" style="margin-left: 20px;">
+      <div class="row" style="margin-top: 20px;">
+       
+        <div class="col-lg-6">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Email</mat-label>
+              <input matInput [(ngModel)]="user.email" [readonly]="view" name="email" required="true">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-form-field class="demo-full-width">
+            <mat-label>User Name</mat-label>
+            <input matInput [(ngModel)]="user.userName" [readonly]="view" name="userName" required="true">
+          </mat-form-field>
+        </div>
+      
+       
+      </div>
+  
+      <div class="row" style="margin-top: 20px;">
+       
+        <div class="col-lg-6">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Phone Number</mat-label>
+                <input matInput [(ngModel)]="user.phoneNumber" [readonly]="view" name="phoneNumber" required="true">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Mac Address</mat-label>
+            <input matInput [(ngModel)]="user.macAddress" [readonly]="view" name="macAddress" required="true">
+          </mat-form-field>
+        </div>
+      
+       
+      </div>
+    </mat-card>
+   
+    
+  </section>
+<mat-dialog-actions align="end">
+  <button *ngIf="!view" style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" [disabled]="!UserForm.form.valid" >Submit</button>
+  <button *ngIf="!view" style="float: right" mat-raised-button >Cancel</button>
+  
+</mat-dialog-actions>
+</form>
+
+
+
+

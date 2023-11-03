@@ -1,0 +1,56 @@
+<h2 style="margin-left: 20px;" mat-dialog-title>{{title}}</h2>
+<form #areaForm="ngForm" (ngSubmit)="save()">
+  <mat-dialog-content>
+    <mat-card class="demo-card">
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="area.nameLabelCode" name="nameLabelCode" required="true">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width">
+            <mat-label>City</mat-label>
+            <mtx-select [items]="cities" bindLabel="nameLabelCode" bindValue="id" autofocus
+                        [(ngModel)]="area.cityId">
+            </mtx-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4" style="width: 410px;">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Code</mat-label>
+            <input matInput [(ngModel)]="area.code" name="code" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Latitude</mat-label>
+            <input matInput [(ngModel)]="area.latitude" name="latitude">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Longitude</mat-label>
+            <input matInput [(ngModel)]="area.longitude" name="longitude" required>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4" style="width: 410px;">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Pos</mat-label>
+            <input matInput [(ngModel)]="area.sDMId" name="sDMId">
+          </mat-form-field>
+        </div>
+      </div>
+      <div   class="row map-area">
+        <div id="map"    style="height:500px ; width: 600px;"></div>
+      </div>
+    </mat-card>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" [disabled]="!areaForm.form.valid">Submit</button>
+    <button style="float: right" mat-raised-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>

@@ -1,0 +1,240 @@
+<h2 style="margin-left: 20px" mat-dialog-title>{{ title }}</h2>
+<form #restaurantForm="ngForm" (ngSubmit)="save()">
+  <section>
+    <mat-card class="demo-card" style="margin-left: 20px">
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px" >
+            <mtx-select
+              [items]="brands"
+              bindValue="id"
+              name="brand"
+            >
+              <ng-template ng-label-tmp let-item="item">
+                {{item.nameLanguageResources[0].value}}
+              </ng-template>
+
+              <ng-template ng-option-tmp let-item="item" let-index="index">
+                {{item.nameLanguageResources[0].value}}
+              </ng-template>
+
+            </mtx-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px">
+            <mtx-select
+              [readonly]="view"
+              [items]="areas"
+              bindLabel="area"
+              bindValue="id"
+              name="areaId"
+            >
+              <ng-template ng-label-tmp let-item="item">
+                {{item.languageResources[0].value}}
+              </ng-template>
+
+              <ng-template ng-option-tmp let-item="item" let-index="index">
+                {{item.languageResources[0].value}}
+              </ng-template>
+            </mtx-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+        <mat-form-field class="demo-full-width" style="margin-left: 5px">
+          <mtx-select
+            [readonly]="view"
+            [items]="cityVM"
+            bindLabel="city"
+            bindValue="id"
+            name="cityId"
+          >
+            <ng-template ng-label-tmp let-item="item">
+              {{item.languageResources[0].value}}
+            </ng-template>
+
+            <ng-template ng-option-tmp let-item="item" let-index="index">
+              {{item.languageResources[0].value}}
+            </ng-template>
+          </mtx-select>
+        </mat-form-field>
+      </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px">
+            <mat-label>Name</mat-label>
+            <input matInput [readonly]="view" name="nameLabelCode" required="true" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-right: 5px">
+            <mat-label>Contact Name</mat-label>
+            <input matInput [readonly]="view" name="contactName" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px">
+            <mat-label>Contact Mobile</mat-label>
+            <input matInput [readonly]="view" name="contactMobile" />
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Contact Phone</mat-label>
+            <input matInput type="email" [readonly]="view" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Contact Email</mat-label>
+            <input matInput type="email" [readonly]="view" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4" >
+          <mat-form-field class="demo-full-width" style="margin-right: 5px">
+            <mat-label>Adress </mat-label>
+            <input matInput name="addressLabelCode" [readonly]="view" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-3" style="margin-left: 5px; margin-bottom: 10px">
+          <button mat-raised-button *ngIf="!showMap" (click)="ShowMap()">Show Map</button>
+          <button mat-raised-button *ngIf="showMap" (click)="HideMap()">Hide Map</button>
+        </div>
+        <div class="col-lg-9" *ngIf="showMap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927754.6248515602!2d46.163295508650265!3d24.72545537344616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2stn!4v1681342398425!5m2!1sen!2stn"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+      <div class="row"  *ngIf="showMap">
+        <div class="col-lg-6">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px">
+            <mat-label>Latitude</mat-label>
+            <input matInput type="number" name="latitude" [readonly]="view" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Longitude</mat-label>
+            <input matInput type="number" [readonly]="view" name="longitude" required />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row" >
+        <div class="col-lg-6">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px">
+            <mat-label>Type</mat-label>
+            <mtx-select
+              [readonly]="view"
+              [items]="RestaurantTypes"
+              bindLabel="name"
+              bindValue="id"
+              name="type"
+            >
+            </mtx-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6">
+            <mat-form-field class="demo-full-width" style="margin-left: 5px">
+              <mat-label>Delivery type</mat-label>
+              <mtx-select
+                [readonly]="view"
+                [items]="DeliveryTypes"
+                bindLabel="name"
+                bindValue="id"
+                name="deliveryType"
+              >
+              </mtx-select>
+            </mat-form-field>
+         </div>
+      </div>
+
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px">
+            <mat-label>Delivery amount</mat-label>
+            <input matInput type="number" [readonly]="view" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-right: 5px">
+            <mat-label>Delivery Min amount</mat-label>
+            <input matInput type="number"  [readonly]="view" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4" style="width: 410px">
+          <mat-form-field class="demo-full-width" style="margin-right: 5px">
+            <mat-label>Delivery area km</mat-label>
+            <input matInput type="number" [readonly]="view" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px">
+            <mat-label>PickUp Time</mat-label>
+            <input matInput type="number" [readonly]="view" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-right: 5px">
+            <mat-label>Taker ProfileId</mat-label>
+            <input matInput type="number" [readonly]="view" />
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4" style="width: 410px">
+          <td><mat-checkbox></mat-checkbox> <span>Is active</span></td>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 20px">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-right: 5px">
+            <mat-label>Menu</mat-label>
+            <mtx-select
+              [items]="menus"
+              [readonly]="view"
+              bindLabel="nameLabelCode"
+              bindValue="id"
+              name="menu"
+            >
+            </mtx-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4" style="width: 410px">
+          <td><mat-checkbox></mat-checkbox> <span>Is Active Hunger Station</span></td>
+        </div>
+      </div>
+    </mat-card>
+  </section>
+
+  <mat-dialog-actions align="end">
+    <button
+      *ngIf="!view"
+      style="float: right; margin-left: 5px"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="!restaurantForm.form.valid"
+      mat-dialog-close
+    >
+      Submit
+    </button>
+    <button *ngIf="!view" style="float: right" mat-raised-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>

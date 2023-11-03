@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="example-header">
+    <button class="btn-addAggreg" mat-raised-button style="float: right" (click)="createExternalOperator()">
+      Add Aggregator
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="example-container">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.nameLabelCode }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="jobStartTime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Job Start Time </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.jobStartTime }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="jobEndTime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Job End Time </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.jobEndTime }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="isActive">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Is active </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.isActive }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="allowDiscount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Allow discount </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.allowDiscount }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div class="matero-user-panel-icons">
+            <button mat-icon-button (click)="deleteExternalOperator(element.id)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editExternalOperator(element)">
+              <mat-icon>update</mat-icon>
+            </button>
+            <button mat-icon-button (click)="viewExternalOperator(element)">
+              <mat-icon>info</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

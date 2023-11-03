@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="example-header">
+    <button class="btn-addBrandGroup" mat-raised-button style="float: right" (click)="createBrandGroup()">
+      Add BrandGroup
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="example-container">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.nameLabelCode }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phoneNumber">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.phoneNumber }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.email }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div class="matero-user-panel-icons">
+            <button mat-icon-button (click)="deleteBrandGroup(element.id)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editBrandGroup(element)">
+              <mat-icon>update</mat-icon>
+            </button>
+            <button mat-icon-button (click)="viewBrandGroup(element)">
+              <mat-icon>info</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,286 @@
+
+<div class="row" *ngIf="showInputFiltre">
+  <mat-card>
+    <mat-card-header>
+      <div class="row">
+        <div class="col-sm-1 col-12">
+          <mat-icon>filter_list</mat-icon>
+        </div>
+        <div class="col-sm-10 col-12" >
+          <mat-card-title>Filter Options</mat-card-title>
+        </div>
+      </div>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre"   >
+              <mat-label>Name
+              </mat-label>
+              <input type="text" matInput>
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre"   >
+              <mat-label>Code
+              </mat-label>
+              <input type="text" matInput>
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre" >
+              <mat-label>Type</mat-label>
+              <mat-select (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedOption" name="selectedOption" #select="matSelect">
+                <mat-option value=1> General</mat-option>
+                <mat-option value=0>Private</mat-option>
+              </mat-select>
+              <mat-select-trigger>
+                <mat-icon *ngIf="selectedOption" matSuffix (click)="loadData();select.value=null">clear</mat-icon>
+              </mat-select-trigger>
+            </mat-form-field>
+
+          </form>
+        </div>
+        <div class="col-sm-3 col-12">
+            <form class="example-form">
+              <mat-form-field class="example-full-width" appearance="fill" class="style-filtre" >
+                <mat-label>Category</mat-label>
+                <mat-select (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedOption" name="selectedOption" #select="matSelect">
+                  <mat-option value=1> Percentage</mat-option>
+                  <mat-option value=0>Amount</mat-option>
+                </mat-select>
+                <mat-select-trigger>
+                  <mat-icon *ngIf="selectedOption" matSuffix (click)="loadData();select.value=null">clear</mat-icon>
+                </mat-select-trigger>
+              </mat-form-field>
+
+            </form>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre" >
+              <mat-label>Sunday</mat-label>
+              <mat-select (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedOption" name="selectedOption" #select="matSelect">
+                <mat-option value=1> True</mat-option>
+                <mat-option value=0>False</mat-option>
+              </mat-select>
+              <mat-select-trigger>
+                <mat-icon *ngIf="selectedOption" matSuffix (click)="loadData();select.value=null">clear</mat-icon>
+              </mat-select-trigger>
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre" >
+              <mat-label>Monday</mat-label>
+              <mat-select (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedOption" name="selectedOption" #select="matSelect">
+                <mat-option value=1> True</mat-option>
+                <mat-option value=0>False</mat-option>
+              </mat-select>
+              <mat-select-trigger>
+                <mat-icon *ngIf="selectedOption" matSuffix (click)="loadData();select.value=null">clear</mat-icon>
+              </mat-select-trigger>
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre" >
+              <mat-label>Tuesday</mat-label>
+              <mat-select (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedOption" name="selectedOption" #select="matSelect">
+                <mat-option value=1> True</mat-option>
+                <mat-option value=0>False</mat-option>
+              </mat-select>
+              <mat-select-trigger>
+                <mat-icon *ngIf="selectedOption" matSuffix (click)="loadData();select.value=null">clear</mat-icon>
+              </mat-select-trigger>
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre" >
+              <mat-label>Wednesday</mat-label>
+              <mat-select (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedOption" name="selectedOption" #select="matSelect">
+                <mat-option value=1> True</mat-option>
+                <mat-option value=0>False</mat-option>
+              </mat-select>
+              <mat-select-trigger>
+                <mat-icon *ngIf="selectedOption" matSuffix (click)="loadData();select.value=null">clear</mat-icon>
+              </mat-select-trigger>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre" >
+              <mat-label>Thursday</mat-label>
+              <mat-select (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedOption" name="selectedOption" #select="matSelect">
+                <mat-option value=1> True</mat-option>
+                <mat-option value=0>False</mat-option>
+              </mat-select>
+              <mat-select-trigger>
+                <mat-icon *ngIf="selectedOption" matSuffix (click)="loadData();select.value=null">clear</mat-icon>
+              </mat-select-trigger>
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre" >
+              <mat-label>Friday</mat-label>
+              <mat-select (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedOption" name="selectedOption" #select="matSelect">
+                <mat-option value=1> True</mat-option>
+                <mat-option value=0>False</mat-option>
+              </mat-select>
+              <mat-select-trigger>
+                <mat-icon *ngIf="selectedOption" matSuffix (click)="loadData();select.value=null">clear</mat-icon>
+              </mat-select-trigger>
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre" >
+              <mat-label>Saturday</mat-label>
+              <mat-select (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedOption" name="selectedOption" #select="matSelect">
+                <mat-option value=1> True</mat-option>
+                <mat-option value=0>False</mat-option>
+              </mat-select>
+              <mat-select-trigger>
+                <mat-icon *ngIf="selectedOption" matSuffix (click)="loadData();select.value=null">clear</mat-icon>
+              </mat-select-trigger>
+            </mat-form-field>
+          </form>
+        </div>
+        <div class="col-sm-3 col-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill" class="style-filtre" >
+              <mat-label>Status</mat-label>
+              <mat-select (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedOption" name="selectedOption" #select="matSelect">
+                <mat-option value=1> Active</mat-option>
+                <mat-option value=0>in Active</mat-option>
+              </mat-select>
+              <mat-select-trigger>
+                <mat-icon *ngIf="selectedOption" matSuffix (click)="loadData();select.value=null">clear</mat-icon>
+              </mat-select-trigger>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="button-filtre" mat-raised-button color="primary">RESET</button>
+      <button class="button-filtre" mat-raised-button color="accent">
+        <mat-icon>filter_list</mat-icon> Filter
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<button class="button-filtre" mat-raised-button color="primary"   (click)="showInputFiltre = true">
+  <mat-icon>filter_list</mat-icon> Show Filter
+</button>
+<div class="row">
+  <div class="example-header">
+    <button class="btn-addCouppn" mat-raised-button style="float: right" (click)="createCustomerCoupon()">
+      Add Coupon
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="example-container" >
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="code">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> code </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.code }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> type </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.type }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> category </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.category }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="discount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> discount </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.discount }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="discountPercentage">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> discountPercentage </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.discountPercentage }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="activationDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> activation Date </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.activationDate }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="expirationDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Expiration Date </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.expirationDate }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="dontApplyLoyality">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> dontApplyLoyality </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.dontApplyLoyality }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="dontApplyOffer">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> dontApplyOffer </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.dontApplyOffer }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Is active </mat-header-cell>
+        <mat-cell *matCellDef="let row"><i *ngIf="row.status==1" title="True" class="fa fa-check-circle text-success ng-tns-c257-20"></i><i *ngIf="row.status==0" title="True" class="fa fa-check-circle text-dark ng-tns-c257-20"></i></mat-cell>
+
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div class="matero-user-panel-icons">
+            <button mat-icon-button (click)="deleteCustomerCoupon(element.id)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editCustomerCoupon(element)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="viewCustomerCoupon(element)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<page-header></page-header>
+
+
+ <button (click)="onContinue()" class="m-r-8" mat-raised-button  >Create New Role</button>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+
+  <!-- NameRole Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- CraeteUser Column -->
+  <ng-container matColumnDef="CreatorUserId">
+    <th mat-header-cell *matHeaderCellDef> CreatorUserId </th>
+    <td mat-cell *matCellDef="let element"> {{element.creatorUserId   }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="CreationTime">
+    <th mat-header-cell *matHeaderCellDef> CreationTime </th>
+    <td mat-cell *matCellDef="let element"> {{element.creationTime}} </td>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="Status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Edit">
+    <th mat-header-cell *matHeaderCellDef> Edit </th>
+    <td mat-cell *matCellDef="let element">   <button class="m-r-8" mat-raised-button color="primary" >Edit</button> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+
+
+
+
+
+

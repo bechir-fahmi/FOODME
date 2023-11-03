@@ -1,0 +1,173 @@
+<div class="row">
+  <div class="example-header">
+    <button class="btn-add-menuItem" mat-raised-button style="float: right" (click)="createMenuItem()">Add MenuItem</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <button class="button-filtre" mat-raised-button color="accent" (click)="showFiltre()">
+      <mat-icon>filter_list</mat-icon> Filter
+    </button>
+  </div>
+</div>
+<form class="form-group" method="get" action="#">
+
+  <div class="row filters-div" *ngIf="isFiltreShowed">
+  <div class="form-group col-sm-6 ">
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>MenuCategory</mat-label>
+      <mat-select >
+        <mat-option >
+      
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+  <div class="row filters-div" *ngIf="isFiltreShowed">
+    <div class="form-group col-sm-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>arName</mat-label>
+        <input matInput  />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>enName</mat-label>
+        <input matInput  />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>urName</mat-label>
+        <input matInput  />
+      </mat-form-field>
+    </div>
+  </div>
+  
+
+  <div class="row filters-div" *ngIf="isFiltreShowed">
+    <div class="form-group col-sm-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>arDescription</mat-label>
+        <input matInput  />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>enDescription</mat-label>
+        <input matInput  />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>urDescription</mat-label>
+        <input matInput  />
+      </mat-form-field>
+    </div>
+  </div>
+
+
+    <div class="row filters-div" *ngIf="isFiltreShowed">
+      
+      <div class="form-group col-sm-4">
+        <mat-form-field class="example-full-width">
+          <mat-label>searchKey</mat-label>
+          <input matInput  />
+        </mat-form-field>
+      </div>
+    <div class="form-group col-sm-3 ">
+      <div class="input-group">
+      <mat-form-field class="form-control ng-tns-c443-7 ng-pristine ng-valid ng-touched">
+        <mat-label>Min</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field class="form-control ng-tns-c443-7 ng-pristine ng-valid ng-touched">
+        <mat-label>Max</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+
+    </div>
+    <div class="form-group col-sm-3 ">
+      <div class="input-group">
+      <mat-form-field class="form-control ng-tns-c443-7 ng-pristine ng-valid ng-touched">
+        <mat-label>Min</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field class="form-control ng-tns-c443-7 ng-pristine ng-valid ng-touched">
+        <mat-label>Max</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+
+    </div>
+    <div class="col-sm-2">
+      <button class="button-search" mat-raised-button color="primary">Search</button>
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="example-container">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="menuCategory">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Menu Category </mat-header-cell>
+        <mat-cell *matCellDef="let row">      {{getLabel(row.menuCategoryId | labelCategory | async) }}  </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.nameLanguageResources[0].value }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.price }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="calories">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Calories </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.calories }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="rank">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Rank </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.rank }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.descriptionLanguageResources[0].value }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="searchkey">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Search key </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.descriptionLabelCode }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div class="matero-user-panel-icons">
+            <button mat-icon-button (click)="deleteMenuItem(element.id)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editMenuItem(element)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="viewMenuItem(element)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

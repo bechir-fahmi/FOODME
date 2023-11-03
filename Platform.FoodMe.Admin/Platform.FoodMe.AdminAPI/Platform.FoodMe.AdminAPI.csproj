@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.96" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Microservice\Platform.ReferencialData.WebAPI\Platform.ReferencialData.Business\Platform.ReferencialData.Business.csproj" />
+    <ProjectReference Include="..\..\Microservice\Platform.ReferencialData.WebAPI\Platform.ReferentialData.DtoModel\Platform.ReferentialData.DtoModel.csproj" />
+    <ProjectReference Include="..\..\Microservice\Tracking\Platform.Tracking.DtoModel\Platform.Tracking.DtoModel.csproj" />
+    <ProjectReference Include="..\Platform.FoodMe.Admin.Business\Platform.FoodMe.Admin.Business.csproj" />
+    <ProjectReference Include="..\Platform.FoodMe.Admin.ViewModels\Platform.FoodMe.Admin.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

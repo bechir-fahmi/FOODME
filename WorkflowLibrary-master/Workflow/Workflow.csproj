@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WorkflowEngine.NETCore-Core" Version="8.1.0" />
+    <PackageReference Include="WorkflowEngine.NETCore-ProviderForPostgreSQL" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Microservice\Platform.ReferencialData.WebAPI\Platform.ReferencialData.BusinessModel\Platform.ReferencialData.BusinessModel.csproj" />
+    <ProjectReference Include="..\..\Microservice\Platform.ReferencialData.WebAPI\Platform.ReferencialData.Business\Platform.ReferencialData.Business.csproj" />
+    <ProjectReference Include="..\..\Shared\Platform.Shared\Platform.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,52 @@
+<h2 style="margin-left: 20px;" mat-dialog-title>{{title}}</h2>
+<form #ExternalOperatorForm="ngForm" (ngSubmit)="save()">
+  <mat-card class="demo-card" style="margin-left: 20px;">
+   
+    <div class="row" style="margin-top: 20px;">
+
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="ExternalOperator.nameLabelCode" name="nameLabelCode" required="true">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+            <td><mat-checkbox></mat-checkbox>
+                <span>Is active</span></td>
+        </div>
+        <div class="col-lg-4">
+            <td><mat-checkbox></mat-checkbox>
+                <span>Allow discount</span></td>
+        </div>
+ 
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+
+        <div class="col-lg-6">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Job start time</mat-label>
+            <input matInput [(ngModel)]="ExternalOperator.jobStartTime" name="jobStartTime">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-6" style="width: 600px;">
+            <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+                <mat-label>Job end time</mat-label>
+                <input matInput [(ngModel)]="ExternalOperator.jobEndTime" name="jobEndTime">
+              </mat-form-field>
+        </div>
+       
+ 
+    </div>
+
+</mat-card>
+
+   
+
+
+<mat-dialog-actions align="end">
+  <button style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" [disabled]="!ExternalOperatorForm.form.valid" mat-dialog-close>Submit</button>
+  <button style="float: right;" mat-raised-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>
+</form>

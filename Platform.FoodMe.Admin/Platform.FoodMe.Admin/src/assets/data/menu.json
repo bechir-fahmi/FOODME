@@ -1,0 +1,671 @@
+{
+  "menu": [
+    {
+      "route": "dashboard",
+      "name": "dashboard",
+      "displayName": "Dashboard",
+      "type": "link",
+      "icon": "dashboard"
+    },
+    {
+      "route": "order-management",
+      "name": "orderManagement",
+      "displayName": "Order Management",
+      "type": "sub",
+      "icon": "bookmark",
+      "children": [
+        {
+          "route": "orders",
+          "name": "orders",
+          "displayName": "Orders",
+          "icon": "contentPaste",
+          "type": "link"
+        },
+        {
+          "route": "order-refunds-reason",
+          "name": "orderRefundsReason",
+          "displayName": "Order Refund Reason",
+          "icon": "contactSupport",
+          "type": "link"
+        },
+        {
+          "route": "order-cancellation-reason",
+          "name": "orderCancellationReason",
+          "displayName": "Order Cancellation Reason",
+          "icon": "phonelinkErase",
+          "type": "link"
+        },
+        {
+          "route": "order-action-reason",
+          "name": "order-action-reason",
+          "displayName": "Order Action Reason",
+          "icon": "assignment",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "route": "monitoring-tool",
+      "name": "monitoringTool",
+      "displayName": "Monitoring Tools",
+      "type": "sub",
+      "icon": "pan_tool",
+      "children": [
+        {
+          "route": "we-care",
+          "name": "we-Care",
+          "displayName": "We-Care",
+          "icon": "filterAlt",
+          "type": "sub",
+          "children": [
+            {
+              "route": "add-new-monitor",
+              "name": "add-new-monitor",
+              "displayName": "Add New Monitor",
+              "icon": "person_add",
+              "type": "link"
+            },
+            {
+              "route": "monitor-list",
+              "name": "monitorList",
+              "displayName": "Monitor List",
+              "icon": "formatListBulleted",
+              "type": "link"
+            }
+          ],
+          "permissions": {
+            "except": "GUEST"
+          }
+        },
+        {
+          "route": "cashier",
+          "name": "cashier",
+          "displayName": "Cashier",
+          "icon": "pointOfSale",
+          "type": "link"
+        },
+        {
+          "route": "customers",
+          "name": "customers",
+          "displayName": "Customers",
+          "icon": "group",
+          "type": "link"
+        }
+      ]
+    },
+
+    {
+      "route": "brandManagement",
+      "name": "brandManagement",
+      "displayName": "Brand Management",
+      "type": "sub",
+      "icon": "copyright",
+      "children": [
+        {
+          "route": "deliveryZone",
+          "name": "deliveryZone",
+          "displayName": "Delivery Zone",
+          "icon": "gpsFixed",
+          "type": "link"
+        },
+        {
+          "route": "kitchenTypes",
+          "name": "cuisine",
+          "displayName": "Cuisine",
+          "icon": "outdoorGrill",
+          "type": "link"
+        },
+
+        {
+          "route": "brands",
+          "name": "brands",
+          "displayName": "Brands",
+          "icon": "copyright",
+          "type": "link"
+        },
+        {
+          "route": "restaurants",
+          "name": "restaurants",
+          "displayName": "Restaurants",
+          "icon": "restaurantMenu",
+          "type": "link"
+        },
+        {
+          "route": "openingTimes",
+          "name": "openingTimes",
+          "displayName": "Opening Times",
+          "icon": "accessTime",
+          "type": "link"
+        },
+        {
+          "route": "carhopRestaurants",
+          "name": "carhopRestaurants",
+          "displayName": "Carhop Restaurants",
+          "icon": "storefront",
+          "type": "link"
+        },
+        {
+          "route": "foodCourtRestaurant",
+          "name": "foodCourtRestaurant",
+          "displayName": "Food Court Restaurant",
+          "icon": "fastfood",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "route": "menuManagement",
+      "name": "menuManagement",
+      "displayName": "Menu Management",
+      "type": "sub",
+      "icon": "menu",
+      "children": [
+        {
+          "route": "menu",
+          "name": "menu",
+          "displayName": "Menu",
+          "icon": "menu",
+          "type": "link"
+        },
+        {
+          "route": "menuTemplate",
+          "name": "menuTemplate",
+          "displayName": "Menu Template",
+          "icon": "menuBook",
+          "type": "link"
+        },
+
+        {
+          "route": "menuCategory",
+          "name": "menuCategory",
+          "displayName": "Category",
+          "icon": "category",
+          "type": "link"
+        },
+        {
+          "route": "menuItem",
+          "name": "menuItem",
+          "displayName": "Item",
+          "icon": "labelImportant",
+          "type": "link"
+        },
+        {
+          "route": "modifierGroup",
+          "name": "modifierGroup",
+          "displayName": "Modifier Group",
+          "icon": "group",
+          "type": "link"
+        },
+        {
+          "route": "itemTimeSchedule",
+          "name": "itemTimeSchedule",
+          "displayName": "Item Time Schedule",
+          "icon": "calendarMonth",
+          "type": "link"
+        },
+        {
+          "route": "menuTimeSchedule",
+          "name": "menuTimeSchedule",
+          "displayName": "Menu Time Schedule",
+          "icon": "calendarMonth",
+          "type": "link"
+        }
+      ]
+    },
+
+    {
+      "route": "businessHours",
+      "name": "businessHours",
+      "displayName": "Business Hours",
+      "type": "sub",
+      "icon": "menu",
+      "children": [
+        {
+          "route": "calendars-list",
+          "name": "calendars-list",
+          "displayName": "Calendars List",
+          "icon": "menu",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "route": "loyality",
+      "name": "loyality",
+      "displayName": "Loyality",
+      "type": "sub",
+      "icon": "menu",
+      "children": [
+        {
+          "route": "/",
+          "name": "loyality",
+          "displayName": "Loyality Program",
+          "icon": "menu",
+          "type": "link"
+        }
+
+
+      ]
+    },
+    {
+      "route": "customerManagement",
+      "name": "customerManagement",
+      "displayName": "Customer Management",
+      "type": "sub",
+      "icon": "person",
+      "children": [
+        {
+          "route": "loyaltySetting",
+          "name": "loyaltySetting",
+          "displayName": "Loyalty Setting",
+          "icon": "cardMembership",
+          "type": "link"
+        },
+        {
+          "route": "customerList",
+          "name": "CustomerList",
+          "displayName": "Customer List",
+          "icon": "reorder",
+          "type": "link"
+        },
+        {
+          "route": "coupon",
+          "name": "customerCoupon",
+          "displayName": "Customer Coupon",
+          "icon": "wysiwyg",
+          "type": "link"
+        },
+        {
+          "route": "customerWallet",
+          "name": "customerWallet",
+          "displayName": "Customer Wallet",
+          "icon": "payment",
+          "type": "link"
+        },
+        {
+          "route": "customerPoint",
+          "name": "customerPoint",
+          "displayName": "Customer Point",
+          "icon": "place",
+          "type": "link"
+        },
+        {
+          "route": "restaurantEvaluation",
+          "name": "restaurantEvaluation",
+          "displayName": "Restaurant Evaluation",
+          "icon": "starBorder",
+          "type": "link"
+        },
+        {
+          "route": "driverEvaluation",
+          "name": "driverEvaluation",
+          "displayName": "Driver Evaluation",
+          "icon": "starBorder",
+          "type": "link"
+        },
+        {
+          "route": "addressLists",
+          "name": "addressLists",
+          "displayName": "Address Lists",
+          "icon": "toc",
+          "type": "link"
+
+        }
+
+      ]
+    },
+
+
+    {
+      "route": "promotions",
+      "name": "promotions",
+      "displayName": "Promotions",
+      "type": "sub",
+      "icon": "disc_full",
+      "children": [
+        {
+          "route": "customerCoupon",
+          "name": "coupons",
+          "displayName": "Coupons",
+          "icon": "wysiwyg",
+          "type": "link"
+        },
+        {
+          "route": "promoBogo",
+          "name": "buy1Get1",
+          "displayName": "Buy 1 Get 1",
+          "icon": "shoppingCart",
+          "type": "link"
+        },
+        {
+          "route": "discountBogo",
+          "name": "buy1Get1",
+          "displayName": "Discount Buy 1 Get 1",
+          "icon": "shoppingCart",
+          "type": "link"
+        },
+        {
+          "route": "discountReduction",
+          "name": "discountReduction",
+          "displayName": "Discount Reduction",
+          "icon": "localOffer",
+          "type": "link"
+        },
+        {
+          "route": "deliveryOffer",
+          "name": "deliveryOffer",
+          "displayName": "Delivery Offer",
+          "icon": "deliveryDining",
+          "type": "link"
+        },
+        {
+          "route": "banner",
+          "name": "banner",
+          "displayName": "Banner",
+          "icon": "importContacts",
+          "type": "link"
+        },
+        {
+          "route": "offers",
+          "name": "offers",
+          "displayName": "Offers",
+          "icon": "localOffer",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "route": "userManagement",
+      "name": "userManagement",
+      "displayName": "User Management",
+      "type": "sub",
+      "icon": "lock",
+      "children": [
+        {
+          "route": "roles",
+          "name": "roles",
+          "displayName": "Roles",
+          "icon": "supervisorAccount",
+          "type": "link",
+          "permissions": {
+            "only": "ADMIN"
+          }
+        },
+        {
+          "route": "Users",
+          "name": "Users",
+          "displayName": "Users",
+          "icon": "groups2",
+          "type": "link"
+        }
+      ]
+    },
+
+    {
+      "route": "globalSettings",
+      "name": "globalSettings",
+      "displayName": "Global Settings",
+      "type": "sub",
+      "icon": "settings",
+      "children": [
+        {
+          "route": "systemSetup",
+          "name": "systemSetup",
+          "displayName": "System Setup",
+          "icon": "settingsApplications",
+          "type": "link"
+        },
+        {
+          "route": "paymentMethod",
+          "name": "paymentMethods",
+          "displayName": "Payment Methods",
+          "icon": "payments",
+          "type": "link"
+        },
+        {
+          "route": "mailConfig",
+          "name": "mailConfig",
+          "displayName": "Mail Config",
+          "icon": "appSettingsAlt",
+          "type": "link"
+        },
+        {
+          "route": "sMSModule",
+          "name": "sMSModule",
+          "displayName": "SMS Module",
+          "icon": "sms",
+          "type": "link"
+        },
+        {
+          "route": "posModule",
+          "name": "posModule",
+          "displayName": "POS Module",
+          "icon": "micExternalOn",
+          "type": "link"
+        },
+        {
+          "route": "externalOperator",
+          "name": "aggregatorModule",
+          "displayName": "Aggregator Module",
+          "icon": "workOutline",
+          "type": "link"
+        },
+        {
+          "route": "deliveryCompany",
+          "name": "deliveryServicesModule",
+          "displayName": "Delivery Services Module",
+          "icon": "localShipping",
+          "type": "link"
+        },
+        {
+          "route": "notificationSettings",
+          "name": "notificationSettings",
+          "displayName": "Notification Settings",
+          "icon": "editNotifications",
+          "type": "link"
+        },
+        {
+          "route": "mapConfiguration",
+          "name": "mapConfiguration",
+          "displayName": "Map Configuration",
+          "icon": "fmdBad",
+          "type": "link"
+        },
+        {
+          "route": "loginModule",
+          "name": "loginModule",
+          "displayName": "Login Module",
+          "icon": "login",
+          "type": "link"
+        }
+      ]
+    },
+
+    {
+      "route": "systemSettings",
+      "name": "systemSettings",
+      "displayName": "System Settings",
+      "type": "sub",
+      "icon": "settings",
+      "children": [
+        {
+          "route": "appSettings",
+          "name": "appSettings",
+          "displayName": "App Settings",
+          "icon": "psychology",
+          "type": "link"
+        },
+        {
+          "route": "staticPages",
+          "name": "staticPages",
+          "displayName": "Static Pages",
+          "icon": "equalizer",
+          "type": "link"
+        },
+        {
+          "route": "ThemeSettings",
+          "name": "themeSettings",
+          "displayName": "Theme Settings",
+          "icon": "darkMode",
+          "type": "link"
+        }
+      ]
+    },
+
+    {
+      "route": "tools",
+      "name": "tools",
+      "displayName": "Tools",
+      "type": "sub",
+      "icon": "pan_tool",
+      "children": [
+        {
+          "route": "gallery",
+          "name": "gallery",
+          "displayName": "Gallery",
+          "icon": "collectionsSharp",
+          "type": "link"
+        },
+        {
+          "route": "bulkImport",
+          "name": "bulkImport",
+          "displayName": "Bulk Import",
+          "icon": "importExportSharp",
+          "type": "link"
+        },
+        {
+          "route": "bulkExport",
+          "name": "bulkExport",
+          "displayName": "Bulk Export",
+          "icon": "publishSharp",
+          "type": "link"
+        }
+      ]
+    },
+
+    {
+      "route": "rulesSettings",
+      "name": "rulesSettings",
+      "displayName": "Rules Settings",
+      "type": "sub",
+      "icon": "settingsSuggestSharp",
+      "children": [
+        {
+          "route": "sMSRules",
+          "name": "sMSRules",
+          "displayName": "SMS Rules",
+          "icon": "sms",
+          "type": "link"
+        },
+        {
+          "route": "aggregatorRules",
+          "name": "aggregatorRules",
+          "displayName": "Aggregator Rules",
+          "icon": "workOutline",
+          "type": "link"
+        },
+        {
+          "route": "DeliveryServicesRules",
+          "name": "Delivery ServicesRules",
+          "displayName": "Delivery Services Rules",
+          "icon": "localShipping",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "route": "referentialData",
+      "name": "referentialData",
+      "displayName": "Referential Data",
+      "type": "sub",
+      "icon": "format_line_spacing",
+      "children": [
+        {
+          "route": "locationData",
+          "name": "locationData",
+          "displayName": "Location Data",
+          "type": "sub",
+          "icon": "locationSearchingSharp",
+          "children": [
+            {
+              "route": "countries",
+              "name": "countries",
+              "displayName": "Countries",
+              "icon": "publicSharp",
+              "type": "link"
+            },
+            {
+              "route": "regions",
+              "name": "regions",
+              "displayName": "Regions",
+              "icon": "southAmericaSharp",
+              "type": "link"
+            },
+            {
+              "route": "areas",
+              "name": "areas",
+              "displayName": "Areas",
+              "icon": "cropLandscapeSharp",
+              "type": "link"
+            },
+            {
+              "route": "cities",
+              "name": "cities",
+              "displayName": "Cities",
+              "icon": "locationCitySharp",
+              "type": "link"
+            }
+          ],
+          "permissions": {
+            "except": "GUEST"
+          }
+        },
+        {
+          "route": "languageData",
+          "name": "languageData",
+          "displayName": "Language Data",
+          "type": "sub",
+          "icon": "gTranslateSharp",
+          "children": [
+            {
+              "route": "languages",
+              "name": "languages",
+              "displayName": "Languages",
+              "icon": "translateSharp",
+              "type": "link"
+            }
+          ],
+          "permissions": {
+            "except": "GUEST"
+          }
+        },
+        {
+          "route": "restaurantData",
+          "name": "restaurantData",
+          "displayName": "Restaurant Data",
+          "type": "sub",
+          "icon": "restaurantMenuSharp",
+          "children": [
+            {
+              "route": "brandGroups",
+              "name": "brandGroups",
+              "displayName": "Brand Groups",
+              "icon": "brandingWatermarkSharp",
+              "type": "link"
+            },
+            {
+              "route": "deliveryCompanies",
+              "name": "deliveryCompanies",
+              "displayName": "Delivery Companies",
+              "icon": "airportShuttleSharp",
+              "type": "link"
+            }
+          ],
+          "permissions": {
+            "except": "GUEST"
+          }
+        }
+      ]
+    }
+  ]
+}

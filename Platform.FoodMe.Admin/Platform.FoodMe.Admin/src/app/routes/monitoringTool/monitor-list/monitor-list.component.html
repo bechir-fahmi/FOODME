@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <h3>Monitor List</h3>
+  </div>
+  <div class="row">
+    <mat-grid-list cols="4" rowHeight="4:1">
+      <mat-grid-tile *ngFor="let monitor of listMonitor">
+        <mat-card class="mat-card-debit">
+          <mat-card-content>
+            <div class="row">
+              <div class="col-8 debit-label">
+                <span>{{ monitor.name }}</span>
+              </div>
+              <div class="col-4 actions">
+                <mat-icon
+                  _ngcontent-far-c638=""
+                  role="button"
+                  class="mat-icon notranslate icon-36 material-icons mat-ligature-font mat-icon-no-color icon-edit"
+                  aria-hidden="true"
+                  data-mat-icon-type="font"
+                  >edit</mat-icon
+                >
+                <mat-icon
+                  _ngcontent-far-c638=""
+                  role="button"
+                  class="mat-icon notranslate icon-36 material-icons mat-ligature-font mat-icon-no-color icon-delete"
+                  aria-hidden="true"
+                  data-mat-icon-type="font"
+                  (click)="delete(monitor.id)"
+                  >delete</mat-icon
+                >
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<h2 style="margin-left: 20px" mat-dialog-title>{{ title }}</h2>
+<form #DeliveryZoneForm="ngForm" (ngSubmit)="save()">
+  <mat-card class="demo-card" style="margin-left: 20px">
+    <div class="row" style="margin-top: 20px">
+      <div class="col-lg-4">
+        <mat-form-field class="demo-full-width" style="margin-left: 5px">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="DeliveryZone.name" name="name" />
+        </mat-form-field>
+      </div>
+      <div class="col-lg-4">
+        <mat-form-field class="demo-full-width" style="margin-left: 5px">
+          <mat-label>Minimum Delivery Charge</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="DeliveryZone.minimumDeliveryCharge"
+            name="minimumDeliveryCharge"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-lg-4" style="width: 390px">
+        <mat-form-field class="demo-full-width" style="margin-left: 5px">
+          <mat-label>Maximum Delivery Charge</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="DeliveryZone.maximumDeliveryCharge"
+            name="maximumDeliveryCharge"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px; margin-left: 10px">
+      <div class="col-lg-6">
+        <mat-form-field class="demo-full-width" style="margin-left: 5px">
+          <mat-label>Delivery Charge Per Km</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="DeliveryZone.deliveryChargePerKm"
+            name="deliveryChargePerKm"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6" style="width: 590px">
+        <mat-form-field class="demo-full-width" style="margin-left: 5px">
+          <mat-label> Maximum COD Order Amount</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="DeliveryZone.maximumCodOrderAmount"
+            name="maximumCodOrderAmount"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 20px; margin-left: 10px">
+      <div class="col-lg-2"></div>
+
+      <div class="col-lg-8">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d927754.6248515602!2d46.163295508650265!3d24.72545537344616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2stn!4v1681342398425!5m2!1sen!2stn"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <div class="col-lg-2"></div>
+    </div>
+  </mat-card>
+
+  <mat-dialog-actions align="end">
+    <button
+      style="float: right; margin-left: 5px"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="!DeliveryZoneForm.form.valid"
+      mat-dialog-close
+    >
+      Submit
+    </button>
+    <button style="float: right" mat-raised-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>

@@ -1,0 +1,161 @@
+<h2 style="margin-left: 20px;" mat-dialog-title>{{page}}</h2>
+<form #CustomerCouponForm="ngForm"   [formGroup]="formValue">
+  <mat-card class="demo-card" style="margin-left: 20px;">
+
+    <div class="row" style="margin-top: 20px;">
+
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Title</mat-label>
+            <input matInput    name="name" formControlName="name" required="true">
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-3">
+            <mat-form-field  class="demo-full-width">
+                <mat-label>type </mat-label>
+
+
+                <mtx-select [items]="type" bindLabel="name"  bindValue="id" formControlName="type"
+                           name="type">
+                </mtx-select>
+              </mat-form-field>
+
+        </div>
+
+        <div class="col-lg-3">
+          <mat-form-field  class="demo-full-width">
+            <mat-label>Discount </mat-label>
+            <input type="number" matInput formControlName="code" name="code" >
+          </mat-form-field>
+
+        </div>
+
+        <div class="col-lg-3">
+            <mat-form-field  class="demo-full-width" style="width: 278px;">
+                <mat-label>category </mat-label>
+
+              <input code="number" matInput  formControlName="category" name="category" >
+              </mat-form-field>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Discount Type</mat-label>
+
+            <mtx-select  [items]="discountTypes" bindLabel="name"  bindValue="id"
+                        name="discountType"   formControlName="discountType">
+            </mtx-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-3">
+            <mat-form-field  class="demo-full-width">
+                <mat-label>LimitForUser </mat-label>
+                <input type="number" matInput  name="limit"  formControlName="discountPercentage">
+              </mat-form-field>
+
+        </div>
+
+        <div class="col-lg-3">
+            <mat-form-field  class="demo-full-width" >
+                <mat-label>activation Date </mat-label>
+                <input type="date" matInput  formControlName="activationDate" name="activationDate">
+              </mat-form-field>
+
+        </div>
+
+        <div class="col-lg-3">
+            <mat-form-field  class="demo-full-width" style="width: 278px;">
+                <mat-label>Expiration Date </mat-label>
+                <input type="date" matInput   formControlName="expirationDate" name="expirationDate">
+              </mat-form-field>
+
+        </div>
+    </div>
+
+             <div class="col-lg-3">
+               <td><mat-checkbox formControlName="dontApplyOffer"></mat-checkbox>
+                 <span>Don’t apply Offer with this coupon</span></td>
+               </div>
+                 <div class="col-lg-3">
+                   <td><mat-checkbox formControlName="dontApplyLoyality"></mat-checkbox>
+                     <span>Don’t apply loyalty with this coupon</span></td>
+                </div>
+
+
+    <div class="row" style="margin-top: 20px;">
+
+
+
+        <div class="col-lg-3">
+            <td><mat-checkbox formControlName="sunday"></mat-checkbox>
+                <span>sunday</span></td>
+        </div>
+
+        <div class="col-lg-3">
+            <td><mat-checkbox formControlName="monday"></mat-checkbox>
+                <span>monday</span></td>
+
+        </div>
+
+        <div class="col-lg-3">
+            <td><mat-checkbox formControlName="tuesday"></mat-checkbox>
+                <span>tuesday</span></td>
+
+        </div>
+
+        <div class="col-lg-3">
+            <td><mat-checkbox formControlName="wednesday"></mat-checkbox>
+                <span>wednesday</span></td>
+
+        </div>
+
+
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+
+      <div class="col-lg-3">
+        <td><mat-checkbox  formControlName="thursday"></mat-checkbox>
+          <span>thursday</span></td>
+
+      </div>
+
+      <div class="col-lg-3">
+        <td><mat-checkbox formControlName="friday"></mat-checkbox>
+          <span>friday</span></td>
+
+      </div>
+
+        <div class="col-lg-3">
+            <td><mat-checkbox formControlName="saturday"></mat-checkbox>
+                <span>saturday</span></td>
+        </div>
+
+        <div class="col-lg-3">
+            <td><mat-checkbox formControlName="active"></mat-checkbox>
+                <span>Is active</span></td>
+
+        </div>
+
+
+    </div>
+
+</mat-card>
+
+
+
+
+<mat-dialog-actions align="end">
+  <button *ngIf="page=='create'" style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" (click)="createCoupon()">Add</button>
+  <button *ngIf="page=='edit'" style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" (click)="update()">Update</button>
+  <button style="float: right;" mat-raised-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>
+</form>

@@ -1,0 +1,27 @@
+﻿@page
+
+@using AFCO_Process.Pages;
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+    var commands = WorkflowInit.Runtime.GetAvailableCommands(Model.InstanceId, String.Empty);
+}
+<div>
+
+</div>
+
+<dl>
+    <dt> Current State </dt>
+    <dd>@WorkflowInit.Runtime.GetCurrentStateName(Model.InstanceId)</dd>
+    <dt> Current Activity </dt>
+    <dd>@WorkflowInit.Runtime.GetCurrentActivityName(Model.InstanceId)</dd>
+
+</dl>
+<form method="post">
+    @foreach (var command in commands)
+    {
+        <input type="submit" asp-page-handler="handleCommand" asp-route-command="@command.CommandName" value="@command.CommandName" >
+    }
+
+</form>

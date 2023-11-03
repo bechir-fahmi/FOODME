@@ -1,0 +1,118 @@
+<div class="container_fluid">
+  <table id="layouttab">
+    <tbody>
+      <tr class="thead-dark" style="padding: 20px;">
+        <th style="color: black;">
+          <span class="en">On The Fly</span>
+        </th>
+        <th style="color: black;">
+          <div id="dtime" style="float: right">
+            {{ nowDate | date : 'dd/MM/yyyy' }}<br />{{ nowDate | date : 'h:mm:ss a' }}
+          </div>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <table id="layouttab">
+    <tbody>
+      <tr class="thead-light">
+        <th style="width: 16%">
+          <!-- <div id="dtime">
+            {{ nowDate | date : 'dd/MM/yyyy' }}<br />{{ nowDate | date : 'h:mm:ss a' }}
+          </div> -->
+        </th>
+        <th style="text-align: center; background-color: #bd9530">
+          <div>
+            <span class="aligned1"
+              ><img class="img" src="/assets/images/afco1.png" width="150" /> <span></span>
+            </span>
+          </div>
+        </th>
+        <th style="text-align: center; background-color: #df1e33">
+          <div>
+            <span class="aligned1"
+              ><img class="img" src="/assets/images/jahez.png" width="140" /> <span></span>
+            </span>
+          </div>
+        </th>
+        <th style="text-align: center; background-color: #ffd12c">
+          <div>
+            <span class="aligned1"
+              ><img class="img" src="/assets/images/hslogo.png" width="140" /> <span></span>
+            </span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td class="red">
+          <div style="background-color: #fafafa; padding: 10px">
+            <img src="/assets/images/preparation.gif" /> <br />
+            <span class="en">In Kitchen</span> <br />
+            <span class="ar">في المطبخ</span>
+          </div>
+        </td>
+        <td *ngFor="let order of listeKeyValuesOrdes; let index = index">
+          <div style="height: 100%">
+            <div id="11" class="divlist" style="padding-left: 10px">
+              <div id="main">
+                <div *ngFor="let orderValues of getListOrderValues(index)">
+                  <div class="course" *ngIf="orderValues.orderStatus == 2">
+                    <div class="course-info">
+                      <div
+                        [ngClass]="
+                          orderValues.orderStatus == 2 ? 'course-preview' : 'course-preview-green'
+                        "
+                      ></div>
+                      <div class="titles row">
+                        <div class="form-group col-12 titles-div">
+                          <div class="col-12 grid-inf">
+                            <span class="input-value"> {{ orderValues.sdmid }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="green">
+          <div style="background-color: #fafafa; padding: 10px">
+            <img src="/assets/images/pickup.gif" /> <br />
+            <span class="en"> Ready To Pickup</span> <br />
+            <span class="ar">جاهز للاستلام</span>
+          </div>
+        </td>
+        <td *ngFor="let order of listeKeyValuesOrdes; let index = index">
+          <div style="height: 100%">
+            <div id="21" class="divlist" style="padding-left: 10px">
+              <div id="main">
+                <div *ngFor="let orderValues of getListOrderValues(index)">
+                  <div class="course" *ngIf="orderValues.orderStatus == 2022">
+                    <div class="course-info">
+                      <div
+                        [ngClass]="
+                          orderValues.orderStatus == 2 ? 'course-preview' : 'course-preview-green'
+                        "
+                      ></div>
+                      <div class="titles row">
+                        <div class="form-group col-12 titles-div">
+                          <div class="col-12 grid-inf">
+                            <span class="input-value"> {{ orderValues.sdmid }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

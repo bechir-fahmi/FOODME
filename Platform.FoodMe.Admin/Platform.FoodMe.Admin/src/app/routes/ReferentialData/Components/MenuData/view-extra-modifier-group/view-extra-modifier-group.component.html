@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="row">
+        <h3>Details Extra modifier group </h3>
+    </div>
+    <div class="row">
+        <div class="col-6 mb-3" *ngFor="let  lang of extraModifierGroup.languageResources">
+            <h6>Name:</h6>
+            {{lang.value}}
+        </div>
+ 
+    </div>
+
+    <div class="row">
+        <div class="col-6 mb-3">
+            <h6> menuItemId :</h6>
+            {{extraModifierGroup.menuItemId}}
+        </div>
+       <div class="col-6 mb-3">
+            <h6>Minmum</h6>
+            {{extraModifierGroup.minRequiredQuantityOfModifier}}
+        </div>
+        <div class="col-6 mb-3">
+            <h6>Maximum</h6>
+            {{extraModifierGroup.maxQuantityOfModifier}}
+        </div>
+    </div>
+    <div class="row">
+   
+        <div class="col-6 mb-3">
+            <h6> Rank  :</h6>
+            {{getRankModifyGroup( extraModifierGroup.adjective)}}
+        </div>
+
+        <div class="col-6 mb-3">
+            <h6> Visible :</h6>
+            {{getVisibilityModifyGroup( extraModifierGroup.adjective)}}
+        </div>
+       
+    </div>
+    <div class="row">
+
+    ModifierItems :
+    <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="ItemName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ItemName </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.languageResources[0].value }} </mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="Price">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
+          <mat-cell *matCellDef="let row" > {{row.price }} </mat-cell>
+        </ng-container>
+
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+        </mat-row>
+      </mat-table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+</div>
+</div>

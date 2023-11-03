@@ -1,0 +1,126 @@
+<div class="row">
+  <div class="example-header">
+    <button class="btn-add-menucat" mat-raised-button style="float: right" (click)="createMenuCategory()">
+      Add Menu Category
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <button class="button-filtre" mat-raised-button color="accent" (click)="showFiltre()">
+      <mat-icon>filter_list</mat-icon> Filter
+    </button>
+  </div>
+</div>
+<form class="form-group" method="get" action="#">
+  <div class="row filters-div" *ngIf="isFiltreShowed">
+    <div class="form-group col-sm-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>arName</mat-label>
+        <input matInput  />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>enName</mat-label>
+        <input matInput  />
+      </mat-form-field>
+    </div>
+    <div class="form-group col-sm-4">
+      <mat-form-field class="example-full-width">
+        <mat-label>urName</mat-label>
+        <input matInput  />
+      </mat-form-field>
+    </div>
+  </div>
+    <div class="row filters-div" *ngIf="isFiltreShowed">
+    <div class="form-group col-sm-3 ">
+      <div class="input-group">
+      <mat-form-field class="form-control ng-tns-c443-7 ng-pristine ng-valid ng-touched">
+        <mat-label>Min</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field class="form-control ng-tns-c443-7 ng-pristine ng-valid ng-touched">
+        <mat-label>Max</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+
+    </div>
+
+    <div class="form-group col-sm-3 ">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Agent</mat-label>
+        <mat-select >
+          <mat-option *ngFor="let ws of isActiveSelect" [value]="ws.value">
+            {{ ws.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-sm-2">
+      <button class="button-search" mat-raised-button color="primary">Search</button>
+    </div>
+  </div>
+</form>
+<div class="row">
+  <div class="example-container">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="menu">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Menu </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.menuId | labelMenu | async }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.nameLanguageResources[0].value }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ getDescription(row?.descriptionLanguageResources) }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="priority">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Priority </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.priority }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="rank">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> rank</mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.rank }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div class="matero-user-panel-icons">
+            <button mat-icon-button (click)="deleteMenuCategory(element.id)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editMenuCategory(element)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="viewMenuCategory(element)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,147 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+
+  
+    .mat-card-debit{
+      background-color: rgba(0,170,109,.15);
+      min-height: 135px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+  
+      width: 400px;
+      height: 140px;
+    }
+    .mat-card-credit{
+      background-color: rgba(248,59,59,.1);
+      min-height: 135px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+  
+      width: 400px;
+      height: 140px;
+    }
+    .mat-card-balance{
+      background-color: rgba(0,150,255,.15);
+      min-height: 135px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+  
+      width: 400px;
+      height: 140px;
+    }
+  
+
+  .resturant-icon{
+
+ inset-inline-end: 20px;
+  top: 25px;
+
+position: absolute;
+  inset-inline-end: 15px;
+  top: 15px;
+  max-width: 30px;
+  height: 35px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.debit-label{
+  color: rgba(0,170,109,170);
+    font-weight: BOLD;
+}  
+.credit-label{
+  color: rgba(248,59,59,250);
+  font-weight: BOLD;
+}
+.balance-label{
+  color: rgba(0,150,255,150)!important;
+  font-weight: BOLD;
+}
+.card{
+  position: relative;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  /* display: flex; */
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0.0625rem solid #f4f4f4;
+  border-radius: 0.75rem;
+
+}
+
+.style-filtre{
+  width: 100%;
+  padding-top: 10px;
+}
+
+
+.button-filtre{
+  margin-left: 10px;
+  float: right;
+
+}
+
+.example-form {
+  min-width: 150px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.point-style {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.mdc-card__actions {
+  display: block !important;
+}

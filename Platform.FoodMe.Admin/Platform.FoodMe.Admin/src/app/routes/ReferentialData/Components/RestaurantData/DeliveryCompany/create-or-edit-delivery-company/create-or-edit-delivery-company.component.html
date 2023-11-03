@@ -1,0 +1,63 @@
+<h2 style="margin-left: 20px;" mat-dialog-title>{{title}}</h2>
+<form #DeliveryCompanyForm="ngForm" (ngSubmit)="save()">
+    
+  <section>
+    
+    <mat-card class="demo-card" style="margin-left: 20px;">
+        <div class="row" style="margin-top: 20px;">
+       
+            <div class="col-lg-4">
+              <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+                <mat-label>Name</mat-label>
+                <input matInput  [(ngModel)]="DeliveryCompany.nameLabelCode"  name="nameLabelCode" >
+              </mat-form-field>
+            </div>
+            <div class="col-lg-4">
+              <mat-form-field class="demo-full-width">
+                <mat-label>Selection Time</mat-label>
+                <input matInput type="number"  [(ngModel)]="DeliveryCompany.selectionTime"   name="selectionTime" >
+              </mat-form-field>
+            </div>
+            <div class="col-lg-4" style="width: 410px;">
+              <mat-form-field class="demo-full-width" style="margin-right: 5px;">
+                <mat-label>Order</mat-label>
+                <input matInput type="number"  [(ngModel)]="DeliveryCompany.order"   name="order" >
+              </mat-form-field>
+            </div>
+           
+          </div> 
+
+      <div class="row" style="margin-top: 20px;">
+       
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Min Distance</mat-label>
+            <input matInput type="number"  [(ngModel)]="DeliveryCompany.minDistance"  name="minDistance">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width">
+            <mat-label>Max Distance</mat-label>
+            <input matInput type="number"  [(ngModel)]="DeliveryCompany.maxDistance"   name="maxDistance" >
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4" style="width: 410px;">
+            <td><mat-checkbox></mat-checkbox>
+                <span>Is active</span></td>
+        </div>
+       
+      </div>
+    </mat-card>
+   
+    
+  </section>
+
+<mat-dialog-actions align="end">
+  <button  style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" [disabled]="!DeliveryCompanyForm.form.valid" mat-dialog-close>Submit</button>
+  <button  style="float: right" mat-raised-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>
+</form>
+
+
+

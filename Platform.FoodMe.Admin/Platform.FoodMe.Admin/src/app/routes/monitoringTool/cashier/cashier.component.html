@@ -1,0 +1,154 @@
+<!--<script>
+  const floating_btn = document.querySelector('.floating-btn');
+  const close_btn = document.querySelector('.close-btn');
+  const social_panel_container = document.querySelector('.social-panel-container');
+
+  floating_btn.addEventListener('click', () => {
+    social_panel_container.classList.toggle('visible');
+  });
+
+  close_btn.addEventListener('click', () => {
+    social_panel_container.classList.remove('visible');
+  });
+</script>-->
+<div class="container-fluid">
+  <h3>
+    <!-- <img src="https://stackfood-admin.6amtech.com/public/assets/admin/img/payment.png" />--> Orders
+    Détails
+  </h3>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <button class="button-filtre" mat-raised-button color="accent" (click)="showFiltre()">
+        <mat-icon>filter_list</mat-icon> Filter
+      </button>
+    </div>
+  </div>
+  <form class="form-group" method="get" action="#">
+    <div class="row filters-div" *ngIf="isFiltreShowed">
+      <div class="form-group col-sm-2">
+        <mat-form-field class="example-full-width">
+          <mat-label>Restaurant:</mat-label>
+          <input matInput (keyup)="changeValuesRestau($event)" />
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-2">
+        <mat-form-field class="example-full-width">
+          <mat-label>Order Type:</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-2">
+        <mat-form-field class="example-full-width">
+          <mat-label>Payment Type:</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-2">
+        <mat-form-field class="example-full-width">
+          <mat-label>Mobile number:</mat-label>
+          <input matInput (keyup)="changeValuesnumber($event)" />
+        </mat-form-field>
+      </div>
+      <div class="form-group col-sm-2">
+        <mat-form-field class="example-full-width">
+          <mat-label>Deliver Company: </mat-label>
+          <input
+            matInput
+            type="text"
+            name="search"
+            (keyup)="changeValues($event)"
+            autocomplete="off"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-sm-2">
+        <button class="button-search" mat-raised-button color="primary">Search</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- <div class="row" >
+    <div *ngFor="let order of listsOrders">
+      <app-afco-ticket-order [order]="order"></app-afco-ticket-order>
+  </div>-->
+
+  <mat-tab-group>
+    <mat-tab label="In kitchen">
+      <div id="main">
+        <div *ngFor="let order of listOrder | company : searchText : item">
+          <div class="course" *ngIf="order.orderStatus == 2" (click)="confirmDialog(order.sdmid)">
+            <div class="course-info">
+              <div [ngClass]="order.orderStatus == 2 ? 'course-preview' : 'course-preview-green'">
+                <h6>{{ order.deliv_Comp }}</h6>
+                <h4>
+                  SDM-ID: <br />
+                  {{ order.sdmid }}
+                </h4>
+                <a href="#">View Détails <i class="fas fa-chevron-right"></i></a>
+              </div>
+              <div class="titles row">
+                <div class="form-group col-12 titles-div">
+                  <div class="col-6 grid-inf">
+                    <h6 class="title">Cost:</h6>
+                    <h6 class="title-description">Customer:</h6>
+                    <h6 class="title-description">Number:</h6>
+                    <h6 class="title-description">Restaurant</h6>
+                    <h6 class="title-description">Date</h6>
+                  </div>
+                  <div class="col-6 grid-inf">
+                    <span class="input-value"> {{ order.cost }}</span>
+                    <span class="input-value"> {{ order.customer }}</span>
+                    <span class="input-value"> {{ order.number }}</span>
+                    <span class="input-value"> {{ order.restaurant }}</span>
+                    <span class="input-value withDate">
+                      {{ order.date_order | date : 'dd/MM/yyyy' }}</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Ready to pickup">
+      <div id="main">
+        <div *ngFor="let order of listOrder | company : searchText : item">
+          <div class="course" *ngIf="order.orderStatus == 2022">
+            <div class="course-info">
+              <div [ngClass]="order.orderStatus == 2 ? 'course-preview' : 'course-preview-green'">
+                <h6>Jahez</h6>
+                <h4>
+                  SDM-ID: <br />
+                  {{ order.sdmid }}
+                </h4>
+                <a href="#">View Détails <i class="fas fa-chevron-right"></i></a>
+              </div>
+              <div class="titles row">
+                <div class="form-group col-12 titles-div">
+                  <div class="col-6 grid-inf">
+                    <h6 class="title">Cost:</h6>
+                    <h6 class="title-description">Customer:</h6>
+                    <h6 class="title-description">Number:</h6>
+                    <h6 class="title-description">Restaurant</h6>
+                    <h6 class="title-description">Date</h6>
+                  </div>
+                  <div class="col-6 grid-inf">
+                    <span class="input-value"> {{ order.cost }}</span>
+                    <span class="input-value"> {{ order.customer }}</span>
+                    <span class="input-value"> {{ order.number }}</span>
+                    <span class="input-value"> {{ order.restaurant }}</span>
+                    <span class="input-value withDate">
+                      {{ order.date_order | date : 'dd/MM/yyyy' }}</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

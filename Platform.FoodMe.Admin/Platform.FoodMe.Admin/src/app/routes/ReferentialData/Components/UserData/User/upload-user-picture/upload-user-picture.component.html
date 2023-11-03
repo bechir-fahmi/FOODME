@@ -1,0 +1,33 @@
+
+  <mat-form-field>
+    <div>
+      <mat-toolbar>
+        <input matInput/>
+  
+        <button
+          mat-flat-button
+          color="primary"
+          [disabled]="!selectedFiles"
+          (click)="uploadFiles()"
+        >
+          Upload
+        </button>
+      </mat-toolbar>
+
+      <input
+      type="file"
+      id="fileInput"
+      name="fileInput"
+      accept="image/*" multiple 
+      (change)="selectFiles($event)"
+    />
+  
+    </div>
+  </mat-form-field>
+  
+  <div>
+    <img *ngFor='let preview of previews' [src]="preview" class="preview">
+  </div>
+
+      
+

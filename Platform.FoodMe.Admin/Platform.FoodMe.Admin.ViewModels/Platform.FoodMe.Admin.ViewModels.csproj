@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\RatingData\**" />
+    <EmbeddedResource Remove="ViewModels\RatingData\**" />
+    <None Remove="ViewModels\RatingData\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ViewModels\LocationData\CityVM.cs~RF10693f8.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Microservice\Platform.ReferencialData.WebAPI\Platform.ReferencialData.BusinessModel\Platform.ReferencialData.BusinessModel.csproj" />
+    <ProjectReference Include="..\..\Microservice\Platform.ReferencialData.WebAPI\Platform.ReferentialData.DtoModel\Platform.ReferentialData.DtoModel.csproj" />
+    <ProjectReference Include="..\..\Microservice\Tracking\Platform.Tracking.BusinessModel\Platform.Tracking.BusinessModel.csproj" />
+    <ProjectReference Include="..\..\Shared\Platform.Shared\Platform.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

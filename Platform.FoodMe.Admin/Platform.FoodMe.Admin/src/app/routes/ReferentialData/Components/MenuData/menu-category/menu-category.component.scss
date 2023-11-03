@@ -1,0 +1,45 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  .btn-add-menucat{
+    background-color: #4272d7;
+    color: white;
+    width: 220px;
+    height: 45px;
+  }
+  .example-full-width{
+    width: 100%;
+  }
+
+  .input-group {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+}
+.filters-div {
+  margin-top: 20px;
+}

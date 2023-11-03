@@ -1,0 +1,106 @@
+<div class="example-header"></div>
+<div class="example-container">
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="nameLabelCode">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.nameLabelCode }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="descriptionLabelCode">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Description Label Code </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color">
+        {{ row.descriptionLabelCode }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="brandGroup">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Brand Group </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color">
+        {{ row.brandGroup }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="contact">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Contact </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color">
+        {{ row.contact }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="webSite">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> WebSite </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color">
+        {{ row.webSite }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="imageFileLabelCode">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Image File Label Code </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color">
+        {{ row.imageFileLabelCode }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color">
+        {{ row.country }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="licenseCode">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> License Code </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color">
+        {{ row.licenseCode }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tax">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Tax </mat-header-cell>
+      <mat-cell *matCellDef="let row" [style.color]="row.color">
+        {{ row.tax }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div class="matero-user-panel-icons">
+          <button mat-icon-button (click)="editBrand(element)">
+            <mat-icon>update</mat-icon>
+          </button>
+          <button mat-icon-button (click)="viewBrand(element)">
+            <mat-icon>info</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>updateSDMmenu-MenuTemplate</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>updateSDMstores</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>updateRestaurantsWorkingTimes</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>updateSDMcountryCityRegionArea</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>updateJahezCategoriesAndMenus</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>replaceJahezMenus</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon>updateHungerStationCatalog</mat-icon>
+          </button>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

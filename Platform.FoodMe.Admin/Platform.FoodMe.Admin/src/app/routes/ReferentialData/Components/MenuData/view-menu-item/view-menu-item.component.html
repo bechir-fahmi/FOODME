@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+        <h3>Details Menu MenuItem</h3>
+    </div>
+
+
+    <div class="row">
+        <div class="col-6 mb-3" *ngFor="let  lang of menuItem.nameLanguageResources">
+            <h6>Name:</h6>
+            {{lang.value}}
+        </div>
+ 
+    </div>
+    <div class="row">
+        <div class="col-6 mb-3">
+            <h6>Rank :</h6>
+            {{menuItem.rank}}
+        </div>
+
+        <div class="col-6 mb-3">
+            <h6> Priority:</h6>
+            {{menuItem.priority}}
+        </div>
+        <div class="col-6 mb-3">
+            <h6> Price:</h6>
+            {{menuItem.price}}
+        </div>
+        
+    </div>
+
+    <div class="row">
+   
+        <div class="col-6 mb-3">
+            <h6> menuCategoryId:</h6>
+            {{menuItem.menuCategoryId}}
+        </div>
+
+        <div class="col-6 mb-3">
+            <h6> Calories:</h6>
+            {{menuItem.calories}}
+        </div>
+        <div class="col-6 mb-3">
+            <h6> Visibility:</h6>
+            {{menuItem.visibility}}
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-6 mb-3">
+            <h6> imageLink:</h6>
+            {{menuItem.imageLink}}
+        </div>
+    </div>
+
+    
+</div>

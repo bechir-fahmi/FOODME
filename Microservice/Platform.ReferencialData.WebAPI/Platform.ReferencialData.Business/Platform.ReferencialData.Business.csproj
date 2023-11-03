@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Camunda.Api.Client" Version="2.6.0" />
+    <PackageReference Include="Camunda.Worker" Version="0.13.5" />
+    <PackageReference Include="FirebaseAdmin" Version="2.3.0" />
+    <PackageReference Include="MailKit" Version="3.4.3" />
+    <PackageReference Include="Microsoft.AspNet.Identity.EntityFramework" Version="2.2.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.25.1" />
+    <PackageReference Include="MimeKit" Version="3.4.3" />
+    <PackageReference Include="RestSharp" Version="108.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
+    <PackageReference Include="Twilio" Version="6.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Platform.Shared\Platform.Shared.csproj" />
+    <ProjectReference Include="..\..\Platform.GenericRepository\Platform.GenericRepository\Platform.GenericRepository.csproj" />
+    <ProjectReference Include="..\..\Server.Kafka\Server.Kafka\Server.Kafka.csproj" />
+    <ProjectReference Include="..\..\Tracking\Platform.Tracking.DtoModel\Platform.Tracking.DtoModel.csproj" />
+    <ProjectReference Include="..\Platform.ReferencialData.BusinessModel\Platform.ReferencialData.BusinessModel.csproj" />
+    <ProjectReference Include="..\Platform.ReferentialData.DtoModel\Platform.ReferentialData.DtoModel.csproj" />
+    <ProjectReference Include="..\Platform.ReferentialData.EntityFramework\Platform.ReferentialData.EntityFramework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TaskHandle\" />
+  </ItemGroup>
+
+</Project>

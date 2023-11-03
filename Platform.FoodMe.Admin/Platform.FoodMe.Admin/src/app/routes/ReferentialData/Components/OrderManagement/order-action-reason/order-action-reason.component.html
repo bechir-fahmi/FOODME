@@ -1,0 +1,131 @@
+<div class="row" *ngIf="showInputFiltre">
+  <mat-card>
+    <mat-card-header>
+      <div class="row">
+        <div class="col-sm-1 col-12">
+          <mat-icon>filter_list</mat-icon>
+        </div>
+        <div class="col-sm-10 col-12">
+          <mat-card-title>Filter Options</mat-card-title>
+        </div>
+      </div>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <form [formGroup]="formValueFiltre">
+        <div class="row">
+          <div class="col-sm-4 col-12">
+            <mat-label>reason Action</mat-label>
+            <mat-select name="selectedOption" #select="matSelect" formControlName="reasonAction1">
+              <mat-option value="1"> Resend ToSdm</mat-option>
+              <mat-option value="2">Force Cancel</mat-option>
+              <mat-option value="3">Force Closed</mat-option>
+              <mat-option value="4">Cash Back Loyality</mat-option>
+              <mat-option value="5">Force CancelHunger Station</mat-option>
+            </mat-select>
+          </div>
+          <div class="col-sm-4 col-12">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="reasonAction"
+                style="margin-left: 9px"
+                formControlName="reasonAction1"
+              />
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4 col-12">
+            <mat-checkbox formControlName="reasonStatus1"> isActive </mat-checkbox>
+          </div>
+          <mat-card-actions>
+            <button class="button-filtre" mat-raised-button color="primary">RESET</button>
+            <button class="button-filtre" mat-raised-button color="accent" (click)="filtre()">
+              <mat-icon>filter_list</mat-icon> Filter
+            </button>
+          </mat-card-actions>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<button class="button-filtre" mat-raised-button color="primary" (click)="showInputFiltre = true">
+  <mat-icon>filter_list</mat-icon> Show Filter
+</button>
+<div class="example-header">
+  <button mat-raised-button style="float: right; margin-right: 10px" (click)="exportExcel()">
+    <mat-icon>get_app</mat-icon> Export Excel
+  </button>
+  <button mat-raised-button style="float: right; margin-right: 9px" (click)="createOrderAction()">
+    <mat-icon>add</mat-icon> Add Order Action Reason
+  </button>
+</div>
+
+<br />
+<div class="example-container mat-elevation-z8" style="margin-left: 20px">
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="reasonDescription">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Reason Description </mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.reasonDescription }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="reasonAction">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> reasonAction</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <div *ngIf="row.reasonAction === 1">Resend ToSdm</div>
+        <div *ngIf="row.reasonAction === 2">Force Cancel</div>
+        <div *ngIf="row.reasonAction === 3">Force Closed</div>
+        <div *ngIf="row.reasonAction === 4">Cash Back Loyality</div>
+        <div *ngIf="row.reasonAction === 5">Force CancelHunger Station</div>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Is Active </mat-header-cell>
+      <mat-cell *matCellDef="let row"
+        ><i
+          *ngIf="row.status == 1"
+          title="True"
+          class="fa fa-check-circle text-success ng-tns-c257-20"
+        ></i
+        ><i
+          *ngIf="row.status == 0"
+          title="True"
+          class="fa fa-check-circle text-dark ng-tns-c257-20"
+        ></i
+      ></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="true"
+          >
+            Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="viewOrderAction(row)">View</a>
+            <a class="dropdown-item" (click)="editOrderAction(row)">Update</a>
+            <a class="dropdown-item" (click)="deleteOrderAction(row.id)">Delete</a>
+          </div>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+    </mat-row>
+  </mat-table>
+  <mat-paginator
+    [pageSize]="size"
+    [pageIndex]="page"
+    [pageSizeOptions]="[5, 10, 25, 50]"
+    (page)="pageChanged($event)"
+    (change)="loadDataPaginated(page, size)"
+    [pageSize]="size"
+    [pageIndex]="page"
+  ></mat-paginator>
+</div>

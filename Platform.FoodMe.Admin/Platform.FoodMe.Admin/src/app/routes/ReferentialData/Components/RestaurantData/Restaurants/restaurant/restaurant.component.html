@@ -1,0 +1,122 @@
+<div class="row">
+  <div class="example-header">
+    <button class="btn-addRestau" mat-raised-button style="float: right" (click)="createRestaurant()">
+      Add Restaurant
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="example-container">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ getRestaurantName(row.id |restaurantName| async) }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="contactName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Contact Name </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.contactName }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="contactPhone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Contact Phone </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.contactPhone }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="contactMobile">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Contact Mobile </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.contactMobile }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="contactEmail">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Contact Email </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.contactEmail }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="addressLabelCode">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> adress  </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ getAdresse(row.id |adressRestaurant| async) }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="latitude">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Latitude </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.latitude }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="longitude">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Longitude </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.longitude }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="brandId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Brand </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ getBrandName(row.brandId |LabelBrande| async) }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="areaId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Area </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ getAreaName(row.areaId |lableArea| async) }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="startTime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Start Time </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.startTime }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="endTime">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> End Time </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.endTime }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="isOpen">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Is Open </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.isOpen ? '&#10003;' : '&#10005;' }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Actions
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" (click)="viewRestaurant(row)">View</a>
+              <a class="dropdown-item" (click)="editRestaurant(row)">Update</a>
+              <a class="dropdown-item" (click)="deleteRestaurant(row.id)">Delete</a>
+            </div>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>
+

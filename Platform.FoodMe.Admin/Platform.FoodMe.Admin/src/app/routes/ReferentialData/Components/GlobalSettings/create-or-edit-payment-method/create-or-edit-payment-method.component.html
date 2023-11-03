@@ -1,0 +1,26 @@
+<h2 style="margin-left: 20px;" mat-dialog-title>{{title}}</h2>
+<form #CouponForm="ngForm" (ngSubmit)="save()">
+  <mat-card class="demo-card" style="margin-left: 20px;">
+   
+    <div class="row" style="margin-top: 20px;">
+
+        <div class="col-lg-11">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="PaymentType.nameLabelCode" name="nameLabelCode" required="true">
+          </mat-form-field>
+        </div>
+ 
+    </div>
+
+</mat-card>
+
+   
+
+
+<mat-dialog-actions align="end">
+  <button style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" [disabled]="!CouponForm.form.valid" mat-dialog-close>Submit</button>
+  <button style="float: right;" mat-raised-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>
+</form>

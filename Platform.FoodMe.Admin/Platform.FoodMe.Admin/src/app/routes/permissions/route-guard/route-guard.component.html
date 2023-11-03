@@ -1,0 +1,27 @@
+<page-header></page-header>
+
+<table >
+<mat-form-field  appearance="fill">
+  <mat-label >user</mat-label>
+  <mat-select [formControl]="toppings" multiple>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<br>
+<mat-form-field  appearance="fill">
+  <mat-label  >superUser</mat-label>
+  <mat-select [formControl]="toppings" multiple>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<br>
+<mat-form-field  appearance="fill">
+  <mat-label  >Brand</mat-label>
+  <mat-select [formControl]="toppings" multiple>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+</table>

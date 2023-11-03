@@ -1,0 +1,51 @@
+<h2 style="margin-left: 20px;" mat-dialog-title>{{title}}</h2>
+<form #CustomerPointForm="ngForm" (ngSubmit)="save()">
+  <mat-card class="demo-card" style="margin-left: 20px;">
+   
+    <div class="row" style="margin-top: 20px;">
+
+        <div class="col-lg-3">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="CustomerPoint.name" name="name" required="true">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+                <mat-label>OrderId</mat-label>
+                <input matInput type="number" [(ngModel)]="CustomerPoint.orderId" name="orderId" required="true">
+              </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field  class="demo-full-width">
+                <mat-label>EarnedPointsBy </mat-label>
+                
+
+                <mtx-select [items]="typeOfGettingPoints" bindLabel="name"  bindValue="id"
+                [(ngModel)]="CustomerPoint.earnedPointBy" name="typeOfGettingPoints">
+                </mtx-select>
+              </mat-form-field>
+            
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+                <mat-label>Points</mat-label>
+                <input matInput type="number" [(ngModel)]="CustomerPoint.points" name="points" required="true">
+              </mat-form-field>
+        </div>
+ 
+    </div>
+
+   
+
+</mat-card>
+
+   
+
+
+<mat-dialog-actions align="end">
+  <button style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" [disabled]="!CustomerPointForm.form.valid" mat-dialog-close>Submit</button>
+  <button style="float: right;" mat-raised-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>
+</form>

@@ -1,0 +1,40 @@
+.k-treeview {
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.k-treeview .k-treeview-item {
+  cursor: pointer;
+  padding: 4px;
+}
+
+.k-treeview .k-in {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.k-treeview .k-in .k-icon {
+  margin-right: 8px;
+}
+
+.k-treeview .k-in .k-in {
+  margin-left: 16px;
+}
+
+.k-treeview .k-in.k-state-selected,
+.k-treeview .k-in.k-state-focused {
+  background-color: #007bff !important;
+  color: #fff;
+}
+
+.k-treeview .k-in:hover {
+  background-color: #f2f2f2;
+}
+
+.k-treeview .k-in.k-state-hover,
+.k-treeview .k-in.k-state-selected:hover {
+  background-color: #0056b3;
+  color: #fff;
+}

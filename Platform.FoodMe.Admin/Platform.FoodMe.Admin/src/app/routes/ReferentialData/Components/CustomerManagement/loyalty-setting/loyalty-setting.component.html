@@ -1,0 +1,153 @@
+<h4><img src="https://stackfood-admin.6amtech.com/public/assets/admin/img/payment.png"> Customer
+  Loyalty Point Report </h4>
+
+<mat-card>
+  <mat-card-header>
+    <div class="row">
+      <div class="col-sm-1 col-12">
+        <mat-icon>filter_list</mat-icon>
+      </div>
+      <div class="col-sm-10 col-12">
+        <mat-card-title>Filter Options</mat-card-title>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <div class="row">
+
+      <div class="col-sm-6 col-12">
+
+        <mat-form-field appearance="fill" class="style-filtre">
+          <mat-label>Choose a date</mat-label>
+          <!-- #docregion toggle -->
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <!-- #enddocregion toggle -->
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6 col-12">
+        <app-afco-data-picker ></app-afco-data-picker>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-sm-6 col-12">
+        <app-afco-data-picker ></app-afco-data-picker>
+      </div>
+      <div class="col-sm-6 col-12">
+
+
+
+        <form class="example-form">
+          <mat-form-field class="example-full-width" appearance="fill" class="style-filtre">
+            <mat-label>Customer Select</mat-label>
+            <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+
+
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="button-filtre" mat-raised-button color="primary">RESET</button>
+    <button class="button-filtre" mat-raised-button color="accent">
+      <mat-icon>filter_list</mat-icon> Filter
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<div class="example-header">
+  <div class="row g-3">
+    <div class="col-sm-4">
+      <mat-card class="mat-card-debit">
+
+        <mat-card-content>
+          <div class="row debit-label">
+            <span>Debit</span>
+          </div>
+          <div class="row point-style">
+            <span>0000</span>
+          </div>
+
+
+          <img class="resturant-icon"
+               src="https://stackfood-admin.6amtech.com/public/assets/admin/img/dashboard/3.png"
+               alt="dashboard">
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+
+    <div class="col-sm-4">
+      <mat-card class="mat-card-credit">
+        <mat-card-content>
+          <div class="row credit-label">
+            <span>Credit</span>
+          </div>
+          <div class="row point-style">
+            <span>0000</span>
+          </div>
+
+          <img class="resturant-icon"
+               src="https://stackfood-admin.6amtech.com/public/assets/admin/img/dashboard/4.png"
+               alt="dashboard">
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+
+    <div class="col-sm-4">
+      <mat-card class="mat-card-balance">
+
+        <mat-card-content>
+          <div class="row balance-label">
+            <span>Balance</span>
+          </div>
+          <div class="row point-style">
+            <span>0000</span>
+          </div>
+
+          <img class="resturant-icon"
+               src="https://stackfood-admin.6amtech.com/public/assets/admin/img/dashboard/1.png"
+               alt="dashboard">
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
+</div>
+<div class="example-container mat-elevation-z8">
+  <mtx-grid [data]="list"
+            [columns]="columns"
+            [loading]="isLoading"
+            [columnResizable]="columnResizable"
+            [multiSelectable]="multiSelectable"
+            [rowSelectable]="rowSelectable"
+            [hideRowSelectionCheckbox]="hideRowSelectionCheckbox"
+            [rowHover]="rowHover"
+            [rowStriped]="rowStriped"
+            [showToolbar]="showToolbar"
+            [toolbarTitle]="'Transactions'"
+            [columnHideable]="columnHideable"
+            [columnSortable]="columnSortable"
+            [columnPinnable]="columnPinnable"
+            [expandable]="expandable"
+            [pageOnFront]="showPaginator"
+            [showPaginator]="showPaginator"
+            [pageSizeOptions]="[5,10,50,100]"
+            [pageIndex]="0"
+            [pageSize]="5"
+            (sortChange)="changeSort($event)"
+            (selectionChange)="changeSelect($event)">
+  </mtx-grid>
+
+
+</div>

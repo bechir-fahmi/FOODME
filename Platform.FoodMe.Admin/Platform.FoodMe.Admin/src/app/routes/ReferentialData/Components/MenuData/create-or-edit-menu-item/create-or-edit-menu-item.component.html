@@ -1,0 +1,131 @@
+<h2 style="margin-left: 20px;" mat-dialog-title>{{title}}</h2>
+<form #MenuItemForm="ngForm" (ngSubmit)="save()">
+  <mat-card class="demo-card" style="margin-left: 20px;">
+   
+    <div class="row" style="margin-top: 20px;">
+
+        <div class="col-lg-4">
+          <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="MenuItem.nameLabelCode" name="nameLabelCode" required="true">
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-4">
+            <mat-form-field  class="demo-full-width">
+                <mat-label>Price </mat-label>
+                <input matInput [(ngModel)]="MenuItem.nameLabelCode">
+              </mat-form-field>
+            
+        </div>
+       
+
+        <div class="col-lg-4" style="width: 410px;">
+           
+              <mat-form-field class="demo-full-width">
+                    <mat-label>Rank</mat-label>
+                    <input matInput [(ngModel)]="MenuItem.nameLabelCode">
+              </mat-form-field>
+           
+        </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-6">
+        <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+          <mat-label>Search Key</mat-label>
+          <input matInput [(ngModel)]="MenuItem.nameLabelCode">
+        </mat-form-field>
+      </div>
+
+      <div class="col-lg-6" style="width: 617px;">
+          <mat-form-field  class="demo-full-width">
+              <mat-label>Calories </mat-label>
+              <input matInput [(ngModel)]="MenuItem.calories">
+            </mat-form-field>
+          
+      </div>
+     
+  </div>
+    <div class="row">
+
+      <div class="col-lg-3" style="margin-top: 40px;">
+        <td><mat-checkbox></mat-checkbox>
+        <span>Is available</span></td>
+    </div>
+        <div class="col-lg-8" style="margin-bottom: 10px;">
+        
+            <span>Description</span>
+            <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="MenuItem.descriptionLabelCode" name="descriptionLabelCode" rows="3"></textarea>
+          
+        </div>
+      
+        <div class="col-lg-1">
+        </div>
+
+       
+    </div>
+
+    <div class="row" style="margin-bottom: 10px;">
+
+       
+      <div class="col-lg-4" style="margin-top: 40px;margin-left: 10px;">
+          <td><mat-checkbox></mat-checkbox>
+              <span>Is Offer</span></td>
+      </div>
+      
+      <div class="col-lg-4" style="margin-top: 40px;margin-left: 10px;">
+        <td><mat-checkbox></mat-checkbox>
+            <span>Visible</span></td>
+    </div>
+
+    <div class="col-lg-4" style="width: 384px;padding-top: 33px;">
+      <mat-form-field class="demo-full-width" style="margin-left: 5px;">
+        <mat-label>Delivery type</mat-label>
+        <mtx-select  [items]="DeliveryTypes" bindLabel="name"  bindValue="id"
+        [(ngModel)]="MenuItem.deliveryType" name="deliveryType">
+        </mtx-select>
+      </mat-form-field>
+    </div>
+
+     
+    
+    
+
+     
+  </div>
+
+  <div class="row" style="margin-top: 20px;margin-left: 10px;">
+       
+    <div style="text-align:center">
+      <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+     
+      <div class="col-lg-3" style="margin-bottom: 10px;">
+     
+        <p>
+          <input type="file" (change)="selectFile($event)">
+        </p>
+        
+      </div>
+      
+        <div><img style="width: 600px;" [src]="url" *ngIf="url"></div>
+     
+     
+      
+    </div>
+    
+   
+  </div>
+  
+</mat-card>
+
+   
+
+
+<mat-dialog-actions align="end">
+  <button style="float: right;margin-left: 5px;" type="submit" mat-raised-button color="primary" [disabled]="!MenuItemForm.form.valid" mat-dialog-close>Submit</button>
+  <button style="float: right;" mat-raised-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>
+</form>

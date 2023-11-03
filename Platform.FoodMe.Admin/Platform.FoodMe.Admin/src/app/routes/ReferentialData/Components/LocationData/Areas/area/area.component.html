@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="example-header">
+    <button class="btn-addArea" mat-raised-button style="float: right" (click)="createArea()">Add Area</button>
+  </div>
+</div>
+<div class="row">
+  <div class="example-container">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.nameLabelCode }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{row?.city?.nameLabelCode}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="code">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Code </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.code }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="latitude">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Latitude </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.latitude }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="longitude">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Longitude </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.longitude }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="sDMId">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Pos </mat-header-cell>
+        <mat-cell *matCellDef="let row" [style.color]="row.color">
+          {{ row.sDMId }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div class="matero-user-panel-icons">
+            <button mat-icon-button (click)="deleteArea(element.id)">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editArea(element)">
+              <mat-icon>update</mat-icon>
+            </button>
+            <button mat-icon-button (click)="viewArea(element)">
+              <mat-icon>info</mat-icon>
+            </button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" [style.background-color]="'#DCDCDC'">
+      </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

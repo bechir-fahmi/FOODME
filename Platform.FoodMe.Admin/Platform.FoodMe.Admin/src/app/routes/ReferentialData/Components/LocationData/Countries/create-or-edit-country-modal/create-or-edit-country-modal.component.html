@@ -1,0 +1,40 @@
+<section>
+  <mat-card class="demo-card" role="group" style="margin-left: 20px;">
+    <mat-card-content>
+      <h2 mat-dialog-title>{{title}}</h2>
+      <form #countryForm="ngForm" (ngSubmit)="save()">
+        <mat-dialog-content>
+         <table class="demo-full-width" cellspacing="0">
+          <tr>
+
+            <td style="padding-right: 10px;"><mat-form-field class="demo-full-width">
+              <mat-label>Name</mat-label>
+              <input matInput name="sDMId">
+            </mat-form-field></td>
+
+            <td style="padding-right: 10px;"><mat-form-field class="demo-full-width">
+              <mat-label>Code</mat-label>
+              <input matInput  name="code" required>
+            </mat-form-field></td>
+
+            <td style="padding-right: 10px;"><mat-form-field class="demo-full-width">
+              <mat-label>Country Key</mat-label>
+              <input matInput [(ngModel)]="country.countryKey" name="countryKey" required>
+            </mat-form-field></td>
+
+          </tr>
+         </table>
+        </mat-dialog-content>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+
+
+<mat-dialog-actions align="end">
+  <button type="submit" mat-raised-button color="primary" [disabled]="!countryForm.form.valid || dataSource.length==0" style="float: right;margin-left: 5px;" >Submit</button>
+  <button style="float: right" mat-raised-button mat-dialog-close>Cancel</button>
+
+</mat-dialog-actions>

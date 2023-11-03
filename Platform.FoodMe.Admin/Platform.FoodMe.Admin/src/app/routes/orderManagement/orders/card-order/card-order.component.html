@@ -1,0 +1,135 @@
+<div class="container-fluid">
+    <div class="row">
+        <h3>Order Cart </h3>
+    </div>
+
+
+    <div class="row">
+        <div class="col-3 mb-3">
+            <h6> Restaurant</h6>
+ 
+        </div>
+        <div class="col-3 mb-3">
+            <h6> {{order.restaurantId}} </h6>
+ 
+        </div>
+        <div class="col-3 mb-3">
+            <h6> Brand</h6>
+     
+        </div>
+        <div class="col-3 mb-3">
+            <h6>  {{order.restaurantId}} </h6>
+     
+        </div>
+    </div>
+    <div class="row">
+   
+        <div class="col-3 mb-3">
+            <h6> OrderMode</h6>
+ 
+        </div>
+        <div class="col-3 mb-3">
+            <h6>{{order.orderStatus}}</h6>
+ 
+        </div>
+        <div class="col-3 mb-3">
+            <h6> Payment</h6>
+     
+        </div>
+        <div class="col-3 mb-3">
+            <h6> {{order.paymentMode}} {{order.paymentStatus}}</h6>
+     
+        </div>
+    </div>
+
+    <div class="row">
+        <h3>Note</h3>
+    </div>
+    <div class="row">
+        <h3>   ITEMS </h3>
+    </div>
+    <div class="row" *ngFor="let orderItem of order.orderItems ">
+
+    </div>
+
+    <div class="row">
+        <div class="col-3 mb-3">
+            <h6> subPrice :</h6>
+ 
+        </div>
+        <div class="col-3 mb-3">
+            <h6> 
+                {{order.priceHT}}
+                
+            </h6>
+ 
+        </div>
+ 
+    </div>
+    <div class="row">
+        <div class="col-3 mb-3">
+            <h6>Tax : Vat 15%</h6>
+ 
+        </div>
+        <div class="col-3 mb-3">
+            <h6> 
+                {{order.tax}}
+                
+            </h6>
+ 
+        </div>
+ 
+    </div>
+
+    <div class="row">
+        <div class="col-3 mb-3">
+            <h6>Total Points Amount:</h6>
+ 
+        </div>
+        <div class="col-3 mb-3">
+            <h6>
+            A voir    {{order.tax}}  
+            </h6>
+ 
+        </div>
+ 
+    </div>
+
+    <div class="row">
+        <div class="col-3 mb-3">
+            <h6> Total Coupon Amount</h6>
+ 
+        </div>
+        <div class="col-3 mb-3">
+            <h6> </h6>
+ 
+        </div>
+ 
+    </div>
+    <div class="row">
+ 
+ 
+        <div class="col-3 mb-3">
+            <h6> Total Discount :</h6>
+ 
+        </div>
+        <div class="col-3 mb-3">
+            <h6>  {{order.discount}}    </h6>
+ 
+        </div>
+  
+    </div>
+    <div class="row">
+        <div class="col-3 mb-3">
+            <h6>   Total :</h6>
+ 
+        </div>
+        <div class="col-3 mb-3">
+            <h6> {{order.total}} </h6>
+ 
+        </div>
+ 
+    </div>
+
+ 
+</div>

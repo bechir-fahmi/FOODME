@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<form #addressListForm="ngForm" (ngSubmit)="save()">
+  <mat-dialog-content>
+    <table class="demo-full-width" cellspacing="0">
+    <tr>
+      <td><mat-form-field class="demo-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="AddressList.nameLabelCode" name="nameLabelCode" required="true">
+      </mat-form-field></td>
+     
+    </tr>
+</table>
+   
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button type="submit" mat-raised-button color="primary" [disabled]="!addressListForm.form.valid" mat-dialog-close>Submit</button>
+</mat-dialog-actions>
+</form>
